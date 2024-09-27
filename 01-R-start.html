@@ -1,0 +1,844 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 1. R: The Beginning of Your Data Journey &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01-R-start';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 2. R basics" href="02-R-start.html" />
+    <link rel="prev" title="Welcome to your R programming journey" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your R programming journey
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 1. R: The Beginning of Your Data Journey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-R-start.html">Chapter 2. R basics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/nedchen2/StartYourRJourney" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/nedchen2/StartYourRJourney/issues/new?title=Issue%20on%20page%20%2F01-R-start.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/01-R-start.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 1. R: The Beginning of Your Data Journey</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-introduction">1.1 Basic Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-r">1.1.1 What is R ?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-r">1.1.2 Why R?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-r-and-rstudio">1.1.3 Installing R and RStudio</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#r-in-windows">R in Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#r-in-mac">R in Mac</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#r-in-other-os">R in other OS</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rstudio">RStudio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-familiar-with-rstudio-and-r">1.2 Getting familiar with RStudio and R</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brief-introduction-to-the-terms">1.2.1 Brief Introduction to the terms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-r-commands">1.2.2 Useful R commands</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-and-absolute-directory">Relative and absolute directory</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-exercise-1-directory-puzzle">Case Exercise 1. Directory puzzle</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magic-when-using-r">1.2.3 Magic when using R</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#help-your-self-with-the-built-in-cheatsheet">Help your self with the built-in cheatsheet</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-r-packages">1.2.4 Install R packages</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-1-r-the-beginning-of-your-data-journey">
+<h1>Chapter 1. R: The Beginning of Your Data Journey<a class="headerlink" href="#chapter-1-r-the-beginning-of-your-data-journey" title="Link to this heading">#</a></h1>
+<section id="basic-introduction">
+<h2>1.1 Basic Introduction<a class="headerlink" href="#basic-introduction" title="Link to this heading">#</a></h2>
+<p>This chapter aims to lay down the foundations of your data journey to use R. By the end of the chapter, you will know:</p>
+<ul class="simple">
+<li><p>How to install the R and R studio in your computer</p></li>
+<li><p>Small tips when using the R studio</p></li>
+<li><p>The basic syntax and programming conventions for biological computing</p></li>
+</ul>
+<section id="what-is-r">
+<h3>1.1.1 What is R ?<a class="headerlink" href="#what-is-r" title="Link to this heading">#</a></h3>
+<p>R is a freely available programming language and software environment for statistical computing and graphics. Based on the commercial statistical software <code class="docutils literal notranslate"><span class="pre">S</span></code>, the first stable version appeared in 2000. It is now widely used among professional scientists and data scientists for data analysis, visualization, and machine learning.</p>
+<img src="./graphics/development_of_R.jpg" alt="development_of_R" width="500px">
+<p><strong>Timeline of R history with selected milestones. <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9148156/">(Giorgi FM, 2022)</a></strong></p>
+</section>
+<section id="why-r">
+<h3>1.1.2 Why R?<a class="headerlink" href="#why-r" title="Link to this heading">#</a></h3>
+<p>There are commercial software packages (GraphPad, SPSS, etc) available that offer advanced statistical tests, customizable graphs, and easy-to-use interfaces that allow users to easily navigate through the software. Why not just use them? Here are some thoughts:</p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>Personalized analysis: You can tailor your analysis rather than trying to use the more limited options in the commerical software.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>Rich package ecosystem: You can use the pre-built and tested packages shared by the R community for analysis and other purpose.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="3">
+<li><p>Great reproducibility: You can build a perfectly repeatable record and scripts of your analysis, which is not always possible with commercial tools. Run your complex analysis with one click (in the future) !</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="4">
+<li><p>Easy scaling: You can work with large datasets with a fast and memory-efficient way in R.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="5">
+<li><p>Freely available: Help yourself in <a class="reference external" href="https://cran.r-project.org">CRAN website</a></p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section id="installing-r-and-rstudio">
+<h3>1.1.3 Installing R and RStudio<a class="headerlink" href="#installing-r-and-rstudio" title="Link to this heading">#</a></h3>
+<p>RStudio is an interactive integrated development environment (IDE) for R, which enables programmers to code efficiently.</p>
+<p>Also, note that it is not necessary to have RStudio in order to use R, but RStudio is highly recommended.</p>
+<p>The installation varies depending on the operating system you use.</p>
+<section id="r-in-windows">
+<h4>R in Windows<a class="headerlink" href="#r-in-windows" title="Link to this heading">#</a></h4>
+<p>The current version of R can be obtained from the <a class="reference external" href="https://cran.rstudio.com/bin/windows/base/">Comprehensive R Archive Network Windows download page</a>. Then click on the latest release link (Something like <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">R</span> <span class="pre">4.4.1</span> <span class="pre">for</span> <span class="pre">Windows</span></code>). Run the installer and accept all of the default options.</p>
+</section>
+<section id="r-in-mac">
+<h4>R in Mac<a class="headerlink" href="#r-in-mac" title="Link to this heading">#</a></h4>
+<p>The current version of R can be obtained from the <a class="reference external" href="https://cran.r-project.org/bin/macosx/">Comprehensive R Archive Network Mac download page</a>. Then click on the latest release link (it will be called something like <code class="docutils literal notranslate"><span class="pre">R-4.4.1-arm64.pkg</span></code>). Run the installer and accept all of the default options.</p>
+</section>
+<section id="r-in-other-os">
+<h4>R in other OS<a class="headerlink" href="#r-in-other-os" title="Link to this heading">#</a></h4>
+<p>Help yourself in <a class="reference external" href="https://cran.r-project.org">CRAN website</a>.</p>
+</section>
+<section id="rstudio">
+<h4>RStudio<a class="headerlink" href="#rstudio" title="Link to this heading">#</a></h4>
+<p>RStudio can be installed from the <a class="reference external" href="https://rstudio.com/products/rstudio/download/#download">RStudio install page</a>. Select the link depending on your OS, run the installer and accept the default options.</p>
+<img src="./graphics/RStudio_install.png" alt="RStudio_install" width="500px">
+</section>
+</section>
+</section>
+<section id="getting-familiar-with-rstudio-and-r">
+<h2>1.2 Getting familiar with RStudio and R<a class="headerlink" href="#getting-familiar-with-rstudio-and-r" title="Link to this heading">#</a></h2>
+<p>First, launch your RStudio.</p>
+<p>RStudio includes</p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>a text editor, (You can write and record your code here. To starting a new code, you can click on <code class="docutils literal notranslate"><span class="pre">File</span></code>, then <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">File</span></code>, then <code class="docutils literal notranslate"><span class="pre">R</span> <span class="pre">Script</span></code>. Explore other features by yourself),</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>a console to execute your code,</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="3">
+<li><p>a panel shows the current variables, function and history in your current R work space (RStudio will launch a new work space when you launch the rstudio, unless you save the current working space in a file).</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="4">
+<li><p>Other panes including <code class="docutils literal notranslate"><span class="pre">Plots</span></code> (Show Figures you produced), <code class="docutils literal notranslate"><span class="pre">Files</span></code> (Show the current working directory), <code class="docutils literal notranslate"><span class="pre">Packages</span></code> (Show the packages that the R had), <code class="docutils literal notranslate"><span class="pre">Help</span></code> (Show the help document regarding specific packages or functions)</p></li>
+</ol>
+</li>
+</ul>
+<p>You can click on each tab to move across the different features.</p>
+<img src="./graphics/RStudio_first_glance.jpg" alt="RStudio_install" width="500px">
+<p>You must now getting confused about some of the terms (like “function”) used. No worries, let’s go ahead!</p>
+<section id="brief-introduction-to-the-terms">
+<h3>1.2.1 Brief Introduction to the terms<a class="headerlink" href="#brief-introduction-to-the-terms" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Term</p></th>
+<th class="head text-left"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Session</p></td>
+<td class="text-left"><p>A period of time during which R is running and objects are created, modified, and analyzed.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Directory</p></td>
+<td class="text-left"><p>Where files are read from or written during R sessions.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Code</p></td>
+<td class="text-left"><p>A series of instructions or commands written in the R language to perform specific tasks.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Console</p></td>
+<td class="text-left"><p>The command line interface in R where code is entered, executed, and results are displayed.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Variable</p></td>
+<td class="text-left"><p>Store values or data, can be modified or accessed for calculations or analysis.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Datasets</p></td>
+<td class="text-left"><p>Collections of data stored in tables or matrices for analysis in R, can be imported from files or created within R.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Function</p></td>
+<td class="text-left"><p>Reusable code that performs specific tasks, can be written or sourced from libraries.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Packages</p></td>
+<td class="text-left"><p>Collections of functions, datasets, and documentation that extend the capabilities of base R for specific tasks</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Work Space</p></td>
+<td class="text-left"><p>An environment where R objects (such as variables, functions, datasets, etc.) are stored during a session.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="useful-r-commands">
+<h3>1.2.2 Useful R commands<a class="headerlink" href="#useful-r-commands" title="Link to this heading">#</a></h3>
+<p>After you have a basic idea about the coding terms. We could have a first glance at the Command used in R.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Command</p></th>
+<th class="head text-left"><p>What it does</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">ls()</span></code></p></td>
+<td class="text-left"><p>list all the variables in the work space</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">rm('a',</span> <span class="pre">'b')</span></code></p></td>
+<td class="text-left"><p>remove variable(s) <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">rm(list=ls())</span></code></p></td>
+<td class="text-left"><p>remove all variable(s)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">getwd()</span></code></p></td>
+<td class="text-left"><p>get current working directory</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">setwd('Path')</span></code></p></td>
+<td class="text-left"><p>set working directory to <code class="docutils literal notranslate"><span class="pre">Path</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">dir.create('Path')</span></code></p></td>
+<td class="text-left"><p>create directory to <code class="docutils literal notranslate"><span class="pre">Path</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">dir.exist('Path')</span></code></p></td>
+<td class="text-left"><p>Whether the directory <code class="docutils literal notranslate"><span class="pre">Path</span></code> exists</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">list.dirs()</span></code></p></td>
+<td class="text-left"><p>list the directory under <code class="docutils literal notranslate"><span class="pre">Path</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">q()</span></code></p></td>
+<td class="text-left"><p>quit R</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">sessionInfo()</span></code></p></td>
+<td class="text-left"><p>collect Information About the Current R Session</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">?Command</span></code></p></td>
+<td class="text-left"><p>show the documentation of <code class="docutils literal notranslate"><span class="pre">Command</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">??Keyword</span></code></p></td>
+<td class="text-left"><p>search the all packages/functions with ‘Keyword’, “fuzzy search”</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Try type in the <code class="docutils literal notranslate"><span class="pre">getwd()</span></code> in your R console, and <code class="docutils literal notranslate"><span class="pre">enter</span></code>.</p>
+<section id="relative-and-absolute-directory">
+<h4>Relative and absolute directory<a class="headerlink" href="#relative-and-absolute-directory" title="Link to this heading">#</a></h4>
+<p>A relative directory is a file path that is relative to the current working directory.</p>
+<p>if the current working directory is “C:/Users/FinCourse/document”, a relative directory could be “data/file.csv”, which would refer to the file “file.csv” located in the “data” folder within the current working directory.</p>
+<p>An absolute path describes the location from the root directory.</p>
+<img src="./graphics/Rstudio-absolute-relative.jpg" alt="RStudio_install" width="500px">
+<p><a class="reference external" href="https://networkencyclopedia.com/absolute-path/#google_vignette">image source</a></p>
+</section>
+<section id="case-exercise-1-directory-puzzle">
+<h4>Case Exercise 1. Directory puzzle<a class="headerlink" href="#case-exercise-1-directory-puzzle" title="Link to this heading">#</a></h4>
+<p>You can find the “puzzle” in <code class="docutils literal notranslate"><span class="pre">case1</span></code> under the “document”. Use the R command listed in 1.2.2, Change the current working directory to the directory called <code class="docutils literal notranslate"><span class="pre">exit</span></code>, then create a directory <code class="docutils literal notranslate"><span class="pre">win</span></code> there. Then come back to the previous working directory.</p>
+</section>
+</section>
+<section id="magic-when-using-r">
+<h3>1.2.3 Magic when using R<a class="headerlink" href="#magic-when-using-r" title="Link to this heading">#</a></h3>
+<p>Below we show examples for:</p>
+<p>1.Syntax highlighting and indentation,</p>
+<p>R can help you highlight different syntax (e.g. function, variable etc)</p>
+<p>Ensuring proper indentation is crucial for enhancing the readability of your code. RStudio can assist you in automatically formatting the indentation of your code. In R, adhering to correct syntax allows your code to execute successfully, even if you have not maintained consistent indentation practices. Conversely, in languages like <code class="docutils literal notranslate"><span class="pre">Python</span></code>, improper indentation can lead to code execution errors, making it essential to follow strict indentation rules for the code to run correctly.</p>
+<p>2.automatic code completion,</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">Tab</span></code> to finish function names, file paths, arguments and more</p>
+<p>3.Up and down arrow keys scroll through your command history.</p>
+<p>Use “Up” and “down” in your keyboard to scroll through the command you input to the R console.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is the function to calculate the sum of input parameter a and b</span>
+<span class="n">sumAB</span> <span class="o">&lt;-</span> <span class="n">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">){</span> <span class="c1"># try type this function in your code file,</span>
+  <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="p">}</span>
+
+<span class="n">sumAB</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Try type sumA and then `Tab`</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">3</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;../&quot;</span><span class="p">)</span>  <span class="c1"># Try `Tab` after &quot;/&quot;, see what you get from `Tab`</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">TRUE</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sumAB</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Try scroll your history code to rerun the previous code</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">3</div></div>
+</div>
+<section id="help-your-self-with-the-built-in-cheatsheet">
+<h4>Help your self with the built-in cheatsheet<a class="headerlink" href="#help-your-self-with-the-built-in-cheatsheet" title="Link to this heading">#</a></h4>
+<p>Find the keyboard shortcuts help in the <code class="docutils literal notranslate"><span class="pre">Help</span></code>.</p>
+<p>One of the most frequently used shortcut is
+<code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">ENTER</span></code> &lt;———&gt; Run selected Line(s)</p>
+<img src="./graphics/R_help.png" alt="RStudio_install" width="500px">
+</section>
+</section>
+<section id="install-r-packages">
+<h3>1.2.4 Install R packages<a class="headerlink" href="#install-r-packages" title="Link to this heading">#</a></h3>
+<p>The capabilities offered by a fresh installation of R represent just a fraction of the full range of possibilities available. The extra functionality comes from add-ons available from developers from all over the world, known as Packages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install vegan packages, which is widely used in microbiome study</span>
+<span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s2">&quot;vegan&quot;</span><span class="p">)</span>
+
+<span class="c1"># load vegan</span>
+<span class="n">library</span><span class="p">(</span><span class="n">vegan</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Updating HTML index of packages in &#39;.Library&#39;
+
+Making &#39;packages.html&#39; ...
+ done
+
+Loading required package: permute
+
+Warning message:
+“package ‘permute’ was built under R version 4.2.3”
+Loading required package: lattice
+
+Warning message:
+“package ‘lattice’ was built under R version 4.2.3”
+This is vegan 2.6-8
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are other tools used to download and install packages, see devtools and BiocManager</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to your R programming journey</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02-R-start.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 2. R basics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-introduction">1.1 Basic Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-r">1.1.1 What is R ?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-r">1.1.2 Why R?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-r-and-rstudio">1.1.3 Installing R and RStudio</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#r-in-windows">R in Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#r-in-mac">R in Mac</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#r-in-other-os">R in other OS</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rstudio">RStudio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-familiar-with-rstudio-and-r">1.2 Getting familiar with RStudio and R</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brief-introduction-to-the-terms">1.2.1 Brief Introduction to the terms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-r-commands">1.2.2 Useful R commands</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-and-absolute-directory">Relative and absolute directory</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-exercise-1-directory-puzzle">Case Exercise 1. Directory puzzle</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magic-when-using-r">1.2.3 Magic when using R</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#help-your-self-with-the-built-in-cheatsheet">Help your self with the built-in cheatsheet</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-r-packages">1.2.4 Install R packages</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

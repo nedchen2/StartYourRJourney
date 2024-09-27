@@ -417,11 +417,11 @@ document.write(`
 <h1>Chapter 2. R basics<a class="headerlink" href="#chapter-2-r-basics" title="Link to this heading">#</a></h1>
 <section id="basic-introduction">
 <h2>2.1 Basic Introduction<a class="headerlink" href="#basic-introduction" title="Link to this heading">#</a></h2>
-<p>After reading the previous chapter, you should already have a basic understanding of how R and Rstudio operate. Lets get started with some R basics. You will be working by entering R commands interactively at the R user prompt (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>).</p>
+<p>After reading the previous chapter, you should already have a basic understanding of how R and Rstudio operate. Lets get started with some R basics.</p>
 <section id="r-variables">
 <h3>2.1.1 R variables<a class="headerlink" href="#r-variables" title="Link to this heading">#</a></h3>
 <p>Like in any programming language, you will need to use “variables” to store information in a R session’s workspace. Each variable has a reserved location in your <a class="reference external" href="https://en.wikipedia.org/wiki/Random-access_memory">RAM</a>, and takes up “real estate” in it — that is when you create a variable you reserve some space in your computer’s memory.</p>
-<p>★ Now, let’s try assigning a few variables in R and doing things to them:</p>
+<p>In a R session, you will need to utilize “variables” to store data. Every variable occupies “real estate” in your computer’s memory <a class="reference external" href="https://en.wikipedia.org/wiki/Random-access_memory">RAM</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&lt;-</span> <span class="mi">2</span>  <span class="c1"># store 2 as variable a</span>
@@ -430,7 +430,10 @@ document.write(`
 </div>
 </div>
 <p>Note that any text after a “#” is ignored by R</p>
-<p><em>You are advised to include comments in your code and scripts for the benefit of all users</em>. You may be surprised by the challenge of comprehending the functionality of a particular R script (or any script) without well-placed comments, even if you wrote the script recently.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For everyone’s sake, please use comments to annotate your code. Well-placed comments can help people (include you) to understand the functionality of the code</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="c1"># display it</span>
@@ -442,7 +445,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="c1"># product</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">/</span> <span class="n">a</span> 
 </pre></div>
 </div>
 </div>
@@ -497,7 +500,7 @@ document.write(`
 </section>
 <section id="r-functions">
 <h3>2.1.3 R functions<a class="headerlink" href="#r-functions" title="Link to this heading">#</a></h3>
-<p>R have some pre-built functions to help you do mathematical computation</p>
+<p>R have some pre-built functions for different functionality. But you can also defined your own function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sqrt</span><span class="p">(</span><span class="n">a_squared</span><span class="p">)</span> <span class="c1"># square root</span>
@@ -516,10 +519,26 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_html">2</div></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BMI_index</span> <span class="o">&lt;-</span> <span class="n">function</span><span class="p">(</span><span class="n">weight_in_kg</span><span class="p">,</span> <span class="n">height_in_m</span><span class="p">){</span>
+   <span class="n">weight_in_kg</span><span class="o">/</span><span class="n">height_in_m</span><span class="o">^</span><span class="mi">2</span> 
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BMI_index</span><span class="p">(</span><span class="mi">65</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">)</span> <span class="c1"># Have a try on your own data</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="r-data-types">
 <h3>2.1.4 R Data types<a class="headerlink" href="#r-data-types" title="Link to this heading">#</a></h3>
-<p>R have different types of variables including numeric numbers, character strings, and other more advanced types such as factor, Boolean (“logical”; <code class="docutils literal notranslate"><span class="pre">True</span></code>or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>), and data frame.</p>
+<p>R have different types of variables including numeric numbers, character strings, and other more advanced types such as factor, Boolean (“logical”; <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>), and data frame.</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">class</span></code> helps us determine what type of object we have:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -678,7 +697,14 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_html">5</div></div>
 </div>
-<p>R vectors can only store data of a single type (e.g., all numeric or all character). Attempting to merge different data types will prompt R to standardize everything to a single data type. To observe this behavior, experiment with the following example:</p>
+<p>Numeric indexing</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># select the first element</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -696,6 +722,10 @@ document.write(`
 </div></div>
 </div>
 <p>TRUE get converted to 1, why?</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>R vectors (and matrix, array) can only store data of a single type (e.g., all numeric or all character). Attempting to merge different data types will prompt R to standardize everything to a single data type. To observe this behavior, experiment with the following example:</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">&quot;myfirstelement&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span><span class="p">)</span> <span class="c1"># You can give name to each elements, through names() function</span>

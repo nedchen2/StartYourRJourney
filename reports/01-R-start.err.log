@@ -18,13 +18,20 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-library(repr) ; options(repr.plot.width=6, repr.plot.height= 6) # Change plot sizes (in cm)
+# This is the function to calculate the sum of input parameter a and b
+sumAB <- function(a,b){ # try type this function in your code file,
+  a + b
+}
+
+sumAB(1,2) # Try type sumA and then `Tab`
+
+
 ------------------
 
 
-[0;36m  Cell [0;32mIn[1], line 1[0;36m[0m
-[0;31m    library(repr) ; options(repr.plot.width=6, repr.plot.height= 6) # Change plot sizes (in cm)[0m
-[0m                            ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m expression cannot contain assignment, perhaps you meant "=="?
+[0;36m  Cell [0;32mIn[1], line 2[0;36m[0m
+[0;31m    sumAB <- function(a,b){ # try type this function in your code file,[0m
+[0m                          ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
 
 

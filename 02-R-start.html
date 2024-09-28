@@ -420,11 +420,10 @@ document.write(`
 <p>After reading the previous chapter, you should already have a basic understanding of how R and Rstudio operate. Lets get started with some R basics.</p>
 <section id="r-variables">
 <h3>2.1.1 R variables<a class="headerlink" href="#r-variables" title="Link to this heading">#</a></h3>
-<p>Like in any programming language, you will need to use “variables” to store information in a R session’s workspace. Each variable has a reserved location in your <a class="reference external" href="https://en.wikipedia.org/wiki/Random-access_memory">RAM</a>, and takes up “real estate” in it — that is when you create a variable you reserve some space in your computer’s memory.</p>
 <p>In a R session, you will need to utilize “variables” to store data. Every variable occupies “real estate” in your computer’s memory <a class="reference external" href="https://en.wikipedia.org/wiki/Random-access_memory">RAM</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&lt;-</span> <span class="mi">2</span>  <span class="c1"># store 2 as variable a</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">2</span><span class="w">  </span><span class="c1"># store 2 as variable a</span>
 </pre></div>
 </div>
 </div>
@@ -436,7 +435,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="c1"># display it</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="c1"># display it</span>
 </pre></div>
 </div>
 </div>
@@ -445,7 +444,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">/</span> <span class="n">a</span> 
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
@@ -455,7 +454,7 @@ document.write(`
 <p>Store a variable:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_squared</span> <span class="o">&lt;-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span> 
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a_squared</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
@@ -470,29 +469,21 @@ document.write(`
 <p>In R, you can name variables in the following way to keep track of related variables:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">.</span><span class="n">var</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_var</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my_var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span> <span class="n">var</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># This name is not valid, so do not use space in naming</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">parse</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">srcfile</span> <span class="o">=</span> <span class="n">src</span><span class="p">):</span> <span class="o">&lt;</span><span class="n">text</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span> <span class="n">unexpected</span> <span class="n">symbol</span>
-<span class="mi">1</span><span class="p">:</span> <span class="n">my</span> <span class="n">var</span>
-       <span class="o">^</span>
-<span class="ne">Traceback</span>:
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># my var = 1 # This name is not valid, so do not use space in naming</span>
 </pre></div>
 </div>
 </div>
@@ -503,7 +494,7 @@ document.write(`
 <p>R have some pre-built functions for different functionality. But you can also defined your own function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sqrt</span><span class="p">(</span><span class="n">a_squared</span><span class="p">)</span> <span class="c1"># square root</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sqrt</span><span class="p">(</span><span class="n">a_squared</span><span class="p">)</span><span class="w"> </span><span class="c1"># square root</span>
 </pre></div>
 </div>
 </div>
@@ -512,7 +503,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log</span><span class="p">(</span> <span class="n">a_squared</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># log2 transformed</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">log</span><span class="p">(</span><span class="w"> </span><span class="n">a_squared</span><span class="p">,</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="c1"># log2 transformed</span>
 </pre></div>
 </div>
 </div>
@@ -521,8 +512,8 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BMI_index</span> <span class="o">&lt;-</span> <span class="n">function</span><span class="p">(</span><span class="n">weight_in_kg</span><span class="p">,</span> <span class="n">height_in_m</span><span class="p">){</span>
-   <span class="n">weight_in_kg</span><span class="o">/</span><span class="n">height_in_m</span><span class="o">^</span><span class="mi">2</span> 
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">BMI_index</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">weight_in_kg</span><span class="p">,</span><span class="w"> </span><span class="n">height_in_m</span><span class="p">){</span>
+<span class="w">   </span><span class="n">weight_in_kg</span><span class="o">/</span><span class="n">height_in_m</span><span class="o">^</span><span class="m">2</span><span class="w"> </span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -530,10 +521,12 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BMI_index</span><span class="p">(</span><span class="mi">65</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">)</span> <span class="c1"># Have a try on your own data</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">BMI_index</span><span class="p">(</span><span class="m">65</span><span class="p">,</span><span class="w"> </span><span class="m">1.7</span><span class="p">)</span><span class="w"> </span><span class="c1"># Have a try on your own data</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">22.4913494809689</div></div>
 </div>
 </section>
 <section id="r-data-types">
@@ -542,7 +535,7 @@ document.write(`
 <p>The function <code class="docutils literal notranslate"><span class="pre">class</span></code> helps us determine what type of object we have:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -551,14 +544,14 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bol</span> <span class="o">=</span> <span class="n">TRUE</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">bol</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kc">TRUE</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class</span><span class="p">(</span><span class="n">bol</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">bol</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -568,7 +561,7 @@ document.write(`
 <p>also, try is.*() function to check whether the input variable is certain type of data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ow">is</span><span class="o">.</span><span class="n">logical</span><span class="p">(</span><span class="n">bol</span><span class="p">)</span> <span class="c1"># Try &quot;TAB&quot; after &quot;is.&quot; to see how many functions you find</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">is.logical</span><span class="p">(</span><span class="n">bol</span><span class="p">)</span><span class="w"> </span><span class="c1"># Try &quot;TAB&quot; after &quot;is.&quot; to see how many functions you find</span>
 </pre></div>
 </div>
 </div>
@@ -578,7 +571,7 @@ document.write(`
 <p>You can also use as.*() function to do input data type conversion</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class</span><span class="p">(</span><span class="mf">3.1</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="m">3.1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -587,7 +580,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">as</span><span class="o">.</span><span class="n">integer</span><span class="p">(</span><span class="mf">3.1</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">as.integer</span><span class="p">(</span><span class="m">3.1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -596,7 +589,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class</span><span class="p">(</span><span class="k">as</span><span class="o">.</span><span class="n">integer</span><span class="p">(</span><span class="mf">3.1</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="nf">as.integer</span><span class="p">(</span><span class="m">3.1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -606,7 +599,7 @@ document.write(`
 <p>Data type coversion should be used with caution. This procedure is typically not advised for beginners due to the potential for unclear or imprecise conversions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">as</span><span class="o">.</span><span class="n">logical</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">as.logical</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -615,7 +608,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">as</span><span class="o">.</span><span class="n">logical</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">as.logical</span><span class="p">(</span><span class="m">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -634,14 +627,14 @@ document.write(`
 <p>Build a vector with <code class="docutils literal notranslate"><span class="pre">c</span></code> (stands for “<code class="docutils literal notranslate"><span class="pre">c</span></code>oncatenate”):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="c1"># Display the vector-valued variable you created</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="w"> </span><span class="c1"># Display the vector-valued variable you created</span>
 </pre></div>
 </div>
 </div>
@@ -656,7 +649,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ow">is</span><span class="o">.</span><span class="n">vector</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="c1"># check if v&#39;s a vector</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">is.vector</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="c1"># check if v&#39;s a vector</span>
 </pre></div>
 </div>
 </div>
@@ -666,7 +659,7 @@ document.write(`
 <p>You can do operations on vector as well</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">log</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -681,7 +674,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="c1"># mean</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">mean</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="c1"># mean</span>
 </pre></div>
 </div>
 </div>
@@ -690,7 +683,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">length</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="c1"># how many elements</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">length</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="c1"># how many elements</span>
 </pre></div>
 </div>
 </div>
@@ -700,14 +693,16 @@ document.write(`
 <p>Numeric indexing</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># select the first element</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">   </span><span class="c1"># select the first element</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">1</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0.02</span><span class="p">,</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 <span class="n">v1</span>
 </pre></div>
 </div>
@@ -728,14 +723,14 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">&quot;myfirstelement&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span><span class="p">)</span> <span class="c1"># You can give name to each elements, through names() function</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">names</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;myfirstelement&quot;</span><span class="p">,</span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="s">&quot;3&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># You can give name to each elements, through names() function</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span> <span class="c1"># display</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span><span class="w"> </span><span class="c1"># display</span>
 </pre></div>
 </div>
 </div>
@@ -755,14 +750,22 @@ document.write(`
 <p>Try this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">:</span><span class="mi">25</span> <span class="c1"># you can generate a series of number by &quot;start:end&quot;</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="o">:</span><span class="m">25</span><span class="w"> </span><span class="c1"># you can generate a series of number by &quot;start:end&quot;</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><li>21</li><li>22</li><li>23</li><li>24</li><li>25</li></ol>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seq</span><span class="p">(</span><span class="kn">from</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">to</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span><span class="n">length</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="mi">25</span><span class="p">)</span> <span class="c1"># or you can generate a more complicated series sequence by using seq()function, try ?seq()</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">25</span><span class="p">)</span><span class="w"> </span><span class="c1"># or you can generate a more complicated series sequence by using seq()function, try ?seq()</span>
 </pre></div>
 </div>
 </div>
@@ -777,8 +780,8 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">.</span><span class="n">mat1</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">seq</span><span class="p">(</span><span class="kn">from</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">to</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span><span class="n">length</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="mi">25</span><span class="p">),</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># place the vector by</span>
-<span class="n">my</span><span class="o">.</span><span class="n">mat1</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.mat1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">25</span><span class="p">),</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="c1"># place the vector by</span>
+<span class="n">my.mat1</span>
 </pre></div>
 </div>
 </div>
@@ -798,8 +801,8 @@ document.write(`
 <p>you can order the elements of a matrix by row instead of column (default).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">.</span><span class="n">mat1</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">seq</span><span class="p">(</span><span class="kn">from</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">to</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span><span class="n">length</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="mi">25</span><span class="p">),</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">byrow</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
-<span class="n">my</span><span class="o">.</span><span class="n">mat1</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.mat1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">25</span><span class="p">),</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="n">my.mat1</span>
 </pre></div>
 </div>
 </div>
@@ -818,7 +821,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dim</span><span class="p">(</span><span class="n">my</span><span class="o">.</span><span class="n">mat1</span><span class="p">)</span> <span class="c1">#get the size of the matrix</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">dim</span><span class="p">(</span><span class="n">my.mat1</span><span class="p">)</span><span class="w"> </span><span class="c1">#get the size of the matrix</span>
 </pre></div>
 </div>
 </div>
@@ -833,7 +836,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colMeans</span><span class="p">(</span><span class="n">my</span><span class="o">.</span><span class="n">mat1</span><span class="p">)</span> <span class="c1"># get the means for each column, similarly try rowMeans()</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">colMeans</span><span class="p">(</span><span class="n">my.mat1</span><span class="p">)</span><span class="w"> </span><span class="c1"># get the means for each column, similarly try rowMeans()</span>
 </pre></div>
 </div>
 </div>
@@ -848,7 +851,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="n">my</span><span class="o">.</span><span class="n">mat1</span><span class="p">)</span>  <span class="c1"># log() can also work in Matrix</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">log</span><span class="p">(</span><span class="n">my.mat1</span><span class="p">)</span><span class="w">  </span><span class="c1"># log() can also work in Matrix</span>
 </pre></div>
 </div>
 </div>
@@ -869,8 +872,8 @@ document.write(`
 <p>Try inserting a text value in <code class="docutils literal notranslate"><span class="pre">my.mat1</span></code>and see what happens:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">.</span><span class="n">mat1</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s2">&quot;one&quot;</span>
-<span class="n">my</span><span class="o">.</span><span class="n">mat1</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.mat1</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;one&quot;</span>
+<span class="n">my.mat1</span>
 </pre></div>
 </div>
 </div>
@@ -896,7 +899,7 @@ That is, inserting a string in one location converted all the elements of the ma
 <p>Let’s build and manipulate a dataframe. First create three vectors:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">column1</span> <span class="o">&lt;-</span> <span class="n">seq</span><span class="p">(</span><span class="kn">from</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">to</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">column1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 <span class="n">column1</span>
 </pre></div>
 </div>
@@ -912,7 +915,7 @@ That is, inserting a string in one location converted all the elements of the ma
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">column2</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span> <span class="n">rep</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">rep</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="p">)</span>   <span class="c1"># function rep() can be used to repeat an input for several times. try ?rep()</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">column2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">),</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w">   </span><span class="c1"># function rep() can be used to repeat an input for several times. try ?rep()</span>
 <span class="n">column2</span>
 </pre></div>
 </div>
@@ -928,8 +931,8 @@ That is, inserting a string in one location converted all the elements of the ma
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">2024</span><span class="p">)</span> <span class="c1"># seed for random numbers</span>
-<span class="n">column3</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span> <span class="n">rnorm</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span><span class="n">mean</span> <span class="o">=</span> <span class="mf">2.8</span><span class="p">,</span><span class="n">sd</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">),</span> <span class="n">rnorm</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span><span class="n">mean</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span><span class="n">sd</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="c1"># 10 random numbers from two different normal distribution</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">2024</span><span class="p">)</span><span class="w"> </span><span class="c1"># seed for random numbers</span>
+<span class="n">column3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2.8</span><span class="p">,</span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.5</span><span class="p">),</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="c1"># 10 random numbers from two different normal distribution</span>
 <span class="n">column3</span>
 </pre></div>
 </div>
@@ -946,8 +949,8 @@ That is, inserting a string in one location converted all the elements of the ma
 <p>Now combine them into a dataframe:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">.</span><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">,</span> <span class="n">column3</span><span class="p">)</span>
-<span class="n">my</span><span class="o">.</span><span class="n">df</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">data.frame</span><span class="p">(</span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">,</span><span class="w"> </span><span class="n">column3</span><span class="p">)</span>
+<span class="n">my.df</span>
 </pre></div>
 </div>
 </div>
@@ -976,8 +979,8 @@ That is, inserting a string in one location converted all the elements of the ma
 <p>You can easily assign names to the columns of dataframes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span><span class="p">(</span><span class="n">my</span><span class="o">.</span><span class="n">df</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">&quot;MyFirstColumn&quot;</span><span class="p">,</span> <span class="s2">&quot;My Second Column&quot;</span><span class="p">,</span> <span class="s2">&quot;My.Third.Column&quot;</span><span class="p">)</span>
-<span class="n">my</span><span class="o">.</span><span class="n">df</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">names</span><span class="p">(</span><span class="n">my.df</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;MyFirstColumn&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;My Second Column&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;My.Third.Column&quot;</span><span class="p">)</span>
+<span class="n">my.df</span>
 </pre></div>
 </div>
 </div>
@@ -1006,7 +1009,7 @@ That is, inserting a string in one location converted all the elements of the ma
 <p>And unlike matrices, you can access the contents of data frames by naming the columns directly using a $ sign:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">.</span><span class="n">df</span><span class="err">$</span><span class="n">MyFirstColumn</span> <span class="c1"># try `TAB` to complete the column name as well</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.df</span><span class="o">$</span><span class="n">MyFirstColumn</span><span class="w"> </span><span class="c1"># try `TAB` to complete the column name as well</span>
 </pre></div>
 </div>
 </div>
@@ -1022,7 +1025,7 @@ That is, inserting a string in one location converted all the elements of the ma
 <p>And also, you can replace that column name using the <code class="docutils literal notranslate"><span class="pre">colnames</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colnames</span><span class="p">(</span><span class="n">my</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">colnames</span><span class="p">(</span><span class="n">my.df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1037,10 +1040,10 @@ That is, inserting a string in one location converted all the elements of the ma
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colnames</span><span class="p">(</span><span class="n">my</span><span class="o">.</span><span class="n">df</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s2">&quot;Sample_ID&quot;</span>
-<span class="n">colnames</span><span class="p">(</span><span class="n">my</span><span class="o">.</span><span class="n">df</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s2">&quot;Group&quot;</span>
-<span class="n">colnames</span><span class="p">(</span><span class="n">my</span><span class="o">.</span><span class="n">df</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s2">&quot;Value&quot;</span>
-<span class="n">my</span><span class="o">.</span><span class="n">df</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">colnames</span><span class="p">(</span><span class="n">my.df</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;Sample_ID&quot;</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">my.df</span><span class="p">)[</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;Group&quot;</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">my.df</span><span class="p">)[</span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;Value&quot;</span>
+<span class="n">my.df</span>
 </pre></div>
 </div>
 </div>
@@ -1069,7 +1072,7 @@ That is, inserting a string in one location converted all the elements of the ma
 <p>You can also access elements by using numerical indexing:  That is, you asked R to return values of <code class="docutils literal notranslate"><span class="pre">my.df</span></code> in all Rows (therefore, nothing before the comma), and the first column (<code class="docutils literal notranslate"><span class="pre">1</span></code> after the comma).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">.</span><span class="n">df</span><span class="p">[,</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.df</span><span class="p">[,</span><span class="m">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1085,7 +1088,7 @@ That is, inserting a string in one location converted all the elements of the ma
 <p>You can also add numeric index (1, as the first row) to get the first row, first column element.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.df</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1095,7 +1098,7 @@ That is, inserting a string in one location converted all the elements of the ma
 <p>Instead of the numeric index, you could also use the name as the index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">.</span><span class="n">df</span><span class="p">[,</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;Group&quot;</span><span class="p">,</span><span class="s2">&quot;Value&quot;</span><span class="p">)]</span> <span class="c1"># show two specific columns only</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.df</span><span class="p">[,</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Group&quot;</span><span class="p">,</span><span class="s">&quot;Value&quot;</span><span class="p">)]</span><span class="w"> </span><span class="c1"># show two specific columns only</span>
 </pre></div>
 </div>
 </div>
@@ -1107,11 +1110,11 @@ That is, inserting a string in one location converted all the elements of the ma
 	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><td>A</td><td>4.9819694</td></tr>
-	<tr><td>A</td><td>4.4687150</td></tr>
-	<tr><td>A</td><td>3.8920287</td></tr>
-	<tr><td>A</td><td>3.7871218</td></tr>
-	<tr><td>A</td><td>5.1580985</td></tr>
+	<tr><td>A</td><td>4.2729541</td></tr>
+	<tr><td>A</td><td>3.5030726</td></tr>
+	<tr><td>A</td><td>2.6380430</td></tr>
+	<tr><td>A</td><td>2.4806827</td></tr>
+	<tr><td>A</td><td>4.5371477</td></tr>
 	<tr><td>C</td><td>3.2923548</td></tr>
 	<tr><td>C</td><td>2.5346471</td></tr>
 	<tr><td>C</td><td>1.8729653</td></tr>
@@ -1124,7 +1127,7 @@ That is, inserting a string in one location converted all the elements of the ma
 <p>You can check whether a particular object is a dataframe data structure with:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class</span><span class="p">(</span><span class="n">my</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">my.df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1134,7 +1137,7 @@ That is, inserting a string in one location converted all the elements of the ma
 <p>You can check the structure of a dataframe with <code class="docutils literal notranslate"><span class="pre">str()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="n">my</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">str</span><span class="p">(</span><span class="n">my.df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1142,7 +1145,7 @@ That is, inserting a string in one location converted all the elements of the ma
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	10 obs. of  3 variables:
  $ Sample_ID: num  1 2 3 4 5 6 7 8 9 10
  $ Group    : chr  &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; ...
- $ Value    : num  4.98 4.47 3.89 3.79 5.16 ...
+ $ Value    : num  4.27 3.5 2.64 2.48 4.54 ...
 </pre></div>
 </div>
 </div>
@@ -1150,7 +1153,7 @@ That is, inserting a string in one location converted all the elements of the ma
 <p>You can print the column names and top few rows with <code class="docutils literal notranslate"><span class="pre">head()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">head</span><span class="p">(</span><span class="n">my</span><span class="o">.</span><span class="n">df</span><span class="p">)</span> <span class="c1"># try get the bottom few rows with `tail()`:</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">my.df</span><span class="p">)</span><span class="w"> </span><span class="c1"># try get the bottom few rows with `tail()`:</span>
 </pre></div>
 </div>
 </div>
@@ -1162,11 +1165,11 @@ That is, inserting a string in one location converted all the elements of the ma
 	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><th scope=row>1</th><td>1</td><td>A</td><td>4.981969</td></tr>
-	<tr><th scope=row>2</th><td>2</td><td>A</td><td>4.468715</td></tr>
-	<tr><th scope=row>3</th><td>3</td><td>A</td><td>3.892029</td></tr>
-	<tr><th scope=row>4</th><td>4</td><td>A</td><td>3.787122</td></tr>
-	<tr><th scope=row>5</th><td>5</td><td>A</td><td>5.158098</td></tr>
+	<tr><th scope=row>1</th><td>1</td><td>A</td><td>4.272954</td></tr>
+	<tr><th scope=row>2</th><td>2</td><td>A</td><td>3.503073</td></tr>
+	<tr><th scope=row>3</th><td>3</td><td>A</td><td>2.638043</td></tr>
+	<tr><th scope=row>4</th><td>4</td><td>A</td><td>2.480683</td></tr>
+	<tr><th scope=row>5</th><td>5</td><td>A</td><td>4.537148</td></tr>
 	<tr><th scope=row>6</th><td>6</td><td>C</td><td>3.292355</td></tr>
 </tbody>
 </table>
@@ -1181,7 +1184,7 @@ That is, inserting a string in one location converted all the elements of the ma
 <p>If we consider each row in our <code class="docutils literal notranslate"><span class="pre">my.df</span></code> dataframe as a sample observation, with the Group column denoting the type of treatment received and the Value column representing the final measurement of the response variable, how can we determine the significance of the treatment effect?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wilcox</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">formula</span> <span class="o">=</span> <span class="n">Value</span> <span class="o">~</span>  <span class="n">Group</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">df</span><span class="p">)</span> <span class="c1"># When we set alpha = 0.05, you find no significant difference between Group A, Group C</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">wilcox.test</span><span class="p">(</span><span class="n">formula</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="o">~</span><span class="w">  </span><span class="n">Group</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my.df</span><span class="p">)</span><span class="w"> </span><span class="c1"># When we set alpha = 0.05, you find no significant difference between Group A, Group C</span>
 </pre></div>
 </div>
 </div>
@@ -1197,12 +1200,12 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boxplot</span><span class="p">(</span><span class="n">formula</span> <span class="o">=</span> <span class="n">Value</span> <span class="o">~</span>  <span class="n">Group</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">boxplot</span><span class="p">(</span><span class="n">formula</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="o">~</span><span class="w">  </span><span class="n">Group</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my.df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/25c1789223b13cc50b45fc777eb2b0a6b8ede5c11c712c85c243e34139f5938f.png"><img alt="_images/25c1789223b13cc50b45fc777eb2b0a6b8ede5c11c712c85c243e34139f5938f.png" src="_images/25c1789223b13cc50b45fc777eb2b0a6b8ede5c11c712c85c243e34139f5938f.png" style="width: 360px; height: 360px;" /></a>
+<a class="reference internal image-reference" href="_images/e211aef045f1cec127828c58664144c265a4f09fac4431450cfe9ed33032e3e4.png"><img alt="_images/e211aef045f1cec127828c58664144c265a4f09fac4431450cfe9ed33032e3e4.png" src="_images/e211aef045f1cec127828c58664144c265a4f09fac4431450cfe9ed33032e3e4.png" style="width: 420px; height: 420px;" /></a>
 </div>
 </div>
 </section>
@@ -1217,8 +1220,8 @@ alternative hypothesis: true location shift is not equal to 0
 <p>Try this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">.</span><span class="n">list</span> <span class="o">&lt;-</span> <span class="nb">list</span><span class="p">(</span><span class="n">genus</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;Bifidobacterium&quot;</span><span class="p">,</span><span class="s2">&quot;Akkermansia&quot;</span><span class="p">),</span> <span class="n">rel_abundance</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">20</span> <span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">my</span><span class="o">.</span><span class="n">list</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.list</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">genus</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Bifidobacterium&quot;</span><span class="p">,</span><span class="s">&quot;Akkermansia&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">rel_abundance</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">20</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">))</span>
+<span class="n">my.list</span>
 </pre></div>
 </div>
 </div>
@@ -1245,7 +1248,7 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">.</span><span class="n">list</span><span class="p">[[</span><span class="s2">&quot;genus&quot;</span><span class="p">]]</span> <span class="c1"># Get the list item by using nested square brackets </span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.list</span><span class="p">[[</span><span class="s">&quot;genus&quot;</span><span class="p">]]</span><span class="w"> </span><span class="c1"># Get the list item by using nested square brackets </span>
 </pre></div>
 </div>
 </div>
@@ -1260,15 +1263,23 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">.</span><span class="n">list</span><span class="err">$</span><span class="n">genus</span> <span class="c1"># or do it this way. Quite similar to those in dataframe, right?</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.list</span><span class="o">$</span><span class="n">genus</span><span class="w"> </span><span class="c1"># or do it this way. Quite similar to those in dataframe, right?</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'Bifidobacterium'</li><li>'Akkermansia'</li></ol>
+</div></div>
 </div>
 <p>Or, you can access contents of a list item using the list order index:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">.</span><span class="n">list</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.list</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -1283,7 +1294,7 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">.</span><span class="n">list</span><span class="p">[[</span><span class="mi">1</span><span class="p">]][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># remeber, each elements of my.list is vector, therefore, we can apply the rule of vector to it</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.list</span><span class="p">[[</span><span class="m">1</span><span class="p">]][</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="c1"># remeber, each elements of my.list is vector, therefore, we can apply the rule of vector to it</span>
 </pre></div>
 </div>
 </div>
@@ -1298,8 +1309,8 @@ alternative hypothesis: true location shift is not equal to 0
 <p>To see the difference in memory usage of matrices vs dataframes, try this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">.</span><span class="n">mat1</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">seq</span><span class="p">(</span><span class="kn">from</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">to</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span><span class="n">length</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="mi">25</span><span class="p">),</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">byrow</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
-<span class="n">my</span><span class="o">.</span><span class="n">mat1</span> <span class="c1"># Again, create one matrix</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.mat1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">25</span><span class="p">),</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="n">my.mat1</span><span class="w"> </span><span class="c1"># Again, create one matrix</span>
 </pre></div>
 </div>
 </div>
@@ -1318,8 +1329,8 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my</span><span class="o">.</span><span class="n">mat12df</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">my</span><span class="o">.</span><span class="n">mat1</span><span class="p">)</span>
-<span class="n">my</span><span class="o">.</span><span class="n">mat12df</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.mat12df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">my.mat1</span><span class="p">)</span>
+<span class="n">my.mat12df</span>
 </pre></div>
 </div>
 </div>
@@ -1342,7 +1353,7 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">my</span><span class="o">.</span><span class="n">mat1</span><span class="p">)</span> <span class="c1"># returns size of an R object (variable) in bytes</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">object.size</span><span class="p">(</span><span class="n">my.mat1</span><span class="p">)</span><span class="w"> </span><span class="c1"># returns size of an R object (variable) in bytes</span>
 </pre></div>
 </div>
 </div>
@@ -1354,7 +1365,7 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">my</span><span class="o">.</span><span class="n">mat12df</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">object.size</span><span class="p">(</span><span class="n">my.mat12df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1424,16 +1435,16 @@ alternative hypothesis: true location shift is not equal to 0
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            name: "python3",
+            name: "ir",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
                 </article>
               

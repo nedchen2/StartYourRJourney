@@ -423,7 +423,7 @@ document.write(`
 <p>In a R session, you will need to utilize “variables” to store data. Every variable occupies “real estate” in your computer’s memory <a class="reference external" href="https://en.wikipedia.org/wiki/Random-access_memory">RAM</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">2</span><span class="w">  </span><span class="c1"># store 2 as variable a</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">8</span><span class="w">  </span><span class="c1"># store 8 as variable a</span>
 </pre></div>
 </div>
 </div>
@@ -431,7 +431,7 @@ document.write(`
 <p>Note that any text after a “#” is ignored by R</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For everyone’s sake, please use comments to annotate your code. Well-placed comments can help people (include you) to understand the functionality of the code</p>
+<p>Well-placed comments can help people (include you) to understand the functionality of the code</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -440,18 +440,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">2</div></div>
+<div class="output text_html">8</div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">4</div></div>
-</div>
-<p>Store a variable:</p>
+<p>do simple calculation between variables</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a_squared</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span>
@@ -459,9 +450,18 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a_squared</span><span class="w"> </span><span class="c1"># display it</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">64</div></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Unlike Python or most other programming languages, R uses the <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code> <a class="reference external" href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/assignOps.html">operator to assign variables</a>. You can use <code class="docutils literal notranslate"><span class="pre">=</span></code> as well, but it does not work everywhere, so better to stick with <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code>.</p>
+<p>R uses the <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code> <a class="reference external" href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/assignOps.html">operator to assign variables</a>. “=” can also work, but <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code> is perfered</p>
 </div>
 </section>
 <section id="r-name-your-variables">
@@ -499,7 +499,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">2</div></div>
+<div class="output text_html">8</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -508,7 +508,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">2</div></div>
+<div class="output text_html">6</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -634,7 +634,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="w"> </span><span class="c1"># Display the vector-valued variable you created</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="w"> </span><span class="c1"># Display the vector you have just created</span>
 </pre></div>
 </div>
 </div>
@@ -647,6 +647,7 @@ document.write(`
 <ol class=list-inline><li>1</li><li>2</li><li>4</li><li>8</li><li>16</li></ol>
 </div></div>
 </div>
+<p>Similarly, use is.* to check the data types.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">is.vector</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="c1"># check if v&#39;s a vector</span>
@@ -719,7 +720,7 @@ document.write(`
 <p>TRUE get converted to 1, why?</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>R vectors (and matrix, array) can only store data of a single type (e.g., all numeric or all character). Attempting to merge different data types will prompt R to standardize everything to a single data type. To observe this behavior, experiment with the following example:</p>
+<p>R vectors (and matrix, array) can only store data of a single type (e.g., all numeric or all character). Attempting to merge different data types will prompt R to standardize everything to a single data type. This phenomenon is also called as <em>Coercion</em>.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -730,7 +731,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span><span class="w"> </span><span class="c1"># display</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span><span class="w"> </span><span class="c1">#display</span>
 </pre></div>
 </div>
 </div>
@@ -743,14 +744,158 @@ document.write(`
 </style><dl class=dl-inline><dt>myfirstelement</dt><dd>0.02</dd><dt>2</dt><dd>1</dd><dt>3</dt><dd>1</dd></dl>
 </div></div>
 </div>
+<p>Or you can directly create a named vector by doing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;MyName&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Ned&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyAge&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Unknown&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyJob&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Student&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>After giving name to the vector, you can do name indexing rather than numeric indexing</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v2</span><span class="p">[</span><span class="s">&quot;MyAge&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><strong>MyAge:</strong> 'Unknown'</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span><span class="p">[</span><span class="s">&quot;myfirstelement&quot;</span><span class="p">]</span><span class="w"> </span><span class="c1"># display</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><strong>myfirstelement:</strong> 0.02</div></div>
+</div>
+<p>In empirical cases, you will normally have a vector with unsorted order, like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2020</span><span class="p">,</span><span class="m">2012</span><span class="p">,</span><span class="m">2030</span><span class="p">,</span><span class="m">2024</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>How to order it from low to high? (clue: ?sort(), ?order())</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sort</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span><span class="w"> </span><span class="c1"># you can complete by sort()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>2012</li><li>2020</li><li>2024</li><li>2030</li></ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v3</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">v3</span><span class="p">)]</span><span class="w"> </span><span class="c1"># order return the ordered index like the numerical indexing mentioned previously </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>2012</li><li>2020</li><li>2024</li><li>2030</li></ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">order</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span><span class="w"> </span><span class="c1"># for example, according to the order() function the smallest number should be the second place of the vector, let&#39;s try</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>2</li><li>1</li><li>4</li><li>3</li></ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v3</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="c1"># Is it?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">2012</div></div>
+</div>
+<p>You can also do subsetting (indexing) by the logical value, for example, we want to only retain the year &lt;= 2024:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">logical_vector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span><span class="kc">TRUE</span><span class="p">,</span><span class="kc">FALSE</span><span class="p">,</span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v3</span><span class="p">[</span><span class="n">logical_vector</span><span class="p">]</span><span class="w"> </span><span class="c1"># You see, the FALSE in the third position leads to removal of 2023</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>2020</li><li>2012</li><li>2024</li></ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v3</span><span class="p">[</span><span class="w"> </span><span class="n">v3</span><span class="o">&lt;=</span><span class="w"> </span><span class="m">2024</span><span class="p">]</span><span class="w"> </span><span class="c1"># You can finish this task in a more intuitive way</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>2020</li><li>2012</li><li>2024</li></ol>
+</div></div>
+</div>
+<p>Operators like <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> can only work with number, what if we have chracters? try: <code class="docutils literal notranslate"><span class="pre">%in%</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v2</span><span class="p">[</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Ned&quot;</span><span class="p">,</span><span class="s">&quot;Unknown&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">]</span><span class="w">  </span><span class="c1"># So this will only display the v2 with value have &#39;Ned&#39;, &quot;Unknown&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>MyName</dt><dd>'Ned'</dd><dt>MyAge</dt><dd>'Unknown'</dd></dl>
+</div></div>
+</div>
 </section>
 <section id="matrices-and-arrays">
 <h3>2.2.2 Matrices and arrays<a class="headerlink" href="#matrices-and-arrays" title="Link to this heading">#</a></h3>
-<p>A R “matrix” is a 2 dimensional vector (has both rows and columns).</p>
+<p>A R “matrix” is a 2 dimensional vector (has both rows and columns). On the other word, the matrix is built on the top of vector.</p>
 <p>Try this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="o">:</span><span class="m">25</span><span class="w"> </span><span class="c1"># you can generate a series of number by &quot;start:end&quot;</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="o">:</span><span class="m">36</span><span class="w"> </span><span class="c1"># you can generate a series of number by &quot;start:end&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -760,12 +905,12 @@ document.write(`
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><li>21</li><li>22</li><li>23</li><li>24</li><li>25</li></ol>
+<ol class=list-inline><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><li>21</li><li>22</li><li>23</li><li>24</li><li>25</li><li>26</li><li>27</li><li>28</li><li>29</li><li>30</li><li>31</li><li>32</li><li>33</li><li>34</li><li>35</li><li>36</li></ol>
 </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">25</span><span class="p">)</span><span class="w"> </span><span class="c1"># or you can generate a more complicated series sequence by using seq()function, try ?seq()</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span><span class="p">)</span><span class="w"> </span><span class="c1"># or you can generate a more complicated series sequence by using seq()function, try ?seq()</span>
 </pre></div>
 </div>
 </div>
@@ -775,25 +920,26 @@ document.write(`
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>1</li><li>5.125</li><li>9.25</li><li>13.375</li><li>17.5</li><li>21.625</li><li>25.75</li><li>29.875</li><li>34</li><li>38.125</li><li>42.25</li><li>46.375</li><li>50.5</li><li>54.625</li><li>58.75</li><li>62.875</li><li>67</li><li>71.125</li><li>75.25</li><li>79.375</li><li>83.5</li><li>87.625</li><li>91.75</li><li>95.875</li><li>100</li></ol>
+<ol class=list-inline><li>1</li><li>3.82857142857143</li><li>6.65714285714286</li><li>9.48571428571429</li><li>12.3142857142857</li><li>15.1428571428571</li><li>17.9714285714286</li><li>20.8</li><li>23.6285714285714</li><li>26.4571428571429</li><li>29.2857142857143</li><li>32.1142857142857</li><li>34.9428571428571</li><li>37.7714285714286</li><li>40.6</li><li>43.4285714285714</li><li>46.2571428571429</li><li>49.0857142857143</li><li>51.9142857142857</li><li>54.7428571428571</li><li>57.5714285714286</li><li>60.4</li><li>63.2285714285714</li><li>66.0571428571429</li><li>68.8857142857143</li><li>71.7142857142857</li><li>74.5428571428571</li><li>77.3714285714286</li><li>80.2</li><li>83.0285714285714</li><li>85.8571428571429</li><li>88.6857142857143</li><li>91.5142857142857</li><li>94.3428571428571</li><li>97.1714285714286</li><li>100</li></ol>
 </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.mat1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">25</span><span class="p">),</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="c1"># place the vector by</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.mat1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span><span class="p">),</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">)</span><span class="w"> </span><span class="c1"># place the vector by</span>
 <span class="n">my.mat1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><table class="dataframe">
-<caption>A matrix: 5 × 5 of type dbl</caption>
+<caption>A matrix: 6 × 6 of type dbl</caption>
 <tbody>
-	<tr><td> 1.000</td><td>21.625</td><td>42.250</td><td>62.875</td><td> 83.500</td></tr>
-	<tr><td> 5.125</td><td>25.750</td><td>46.375</td><td>67.000</td><td> 87.625</td></tr>
-	<tr><td> 9.250</td><td>29.875</td><td>50.500</td><td>71.125</td><td> 91.750</td></tr>
-	<tr><td>13.375</td><td>34.000</td><td>54.625</td><td>75.250</td><td> 95.875</td></tr>
-	<tr><td>17.500</td><td>38.125</td><td>58.750</td><td>79.375</td><td>100.000</td></tr>
+	<tr><td> 1.000000</td><td>17.97143</td><td>34.94286</td><td>51.91429</td><td>68.88571</td><td> 85.85714</td></tr>
+	<tr><td> 3.828571</td><td>20.80000</td><td>37.77143</td><td>54.74286</td><td>71.71429</td><td> 88.68571</td></tr>
+	<tr><td> 6.657143</td><td>23.62857</td><td>40.60000</td><td>57.57143</td><td>74.54286</td><td> 91.51429</td></tr>
+	<tr><td> 9.485714</td><td>26.45714</td><td>43.42857</td><td>60.40000</td><td>77.37143</td><td> 94.34286</td></tr>
+	<tr><td>12.314286</td><td>29.28571</td><td>46.25714</td><td>63.22857</td><td>80.20000</td><td> 97.17143</td></tr>
+	<tr><td>15.142857</td><td>32.11429</td><td>49.08571</td><td>66.05714</td><td>83.02857</td><td>100.00000</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -801,20 +947,21 @@ document.write(`
 <p>you can order the elements of a matrix by row instead of column (default).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.mat1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">25</span><span class="p">),</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.mat1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span><span class="p">),</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span><span class="c1"># have a close look at the element order within the matrix above and below.</span>
 <span class="n">my.mat1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><table class="dataframe">
-<caption>A matrix: 5 × 5 of type dbl</caption>
+<caption>A matrix: 6 × 6 of type dbl</caption>
 <tbody>
-	<tr><td> 1.000</td><td> 5.125</td><td> 9.250</td><td>13.375</td><td> 17.500</td></tr>
-	<tr><td>21.625</td><td>25.750</td><td>29.875</td><td>34.000</td><td> 38.125</td></tr>
-	<tr><td>42.250</td><td>46.375</td><td>50.500</td><td>54.625</td><td> 58.750</td></tr>
-	<tr><td>62.875</td><td>67.000</td><td>71.125</td><td>75.250</td><td> 79.375</td></tr>
-	<tr><td>83.500</td><td>87.625</td><td>91.750</td><td>95.875</td><td>100.000</td></tr>
+	<tr><td> 1.00000</td><td> 3.828571</td><td> 6.657143</td><td> 9.485714</td><td>12.31429</td><td> 15.14286</td></tr>
+	<tr><td>17.97143</td><td>20.800000</td><td>23.628571</td><td>26.457143</td><td>29.28571</td><td> 32.11429</td></tr>
+	<tr><td>34.94286</td><td>37.771429</td><td>40.600000</td><td>43.428571</td><td>46.25714</td><td> 49.08571</td></tr>
+	<tr><td>51.91429</td><td>54.742857</td><td>57.571429</td><td>60.400000</td><td>63.22857</td><td> 66.05714</td></tr>
+	<tr><td>68.88571</td><td>71.714286</td><td>74.542857</td><td>77.371429</td><td>80.20000</td><td> 83.02857</td></tr>
+	<tr><td>85.85714</td><td>88.685714</td><td>91.514286</td><td>94.342857</td><td>97.17143</td><td>100.00000</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -831,7 +978,7 @@ document.write(`
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>5</li><li>5</li></ol>
+<ol class=list-inline><li>6</li><li>6</li></ol>
 </div></div>
 </div>
 <div class="cell docutils container">
@@ -846,7 +993,7 @@ document.write(`
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>42.25</li><li>46.375</li><li>50.5</li><li>54.625</li><li>58.75</li></ol>
+<ol class=list-inline><li>43.4285714285714</li><li>46.2571428571429</li><li>49.0857142857143</li><li>51.9142857142857</li><li>54.7428571428571</li><li>57.5714285714286</li></ol>
 </div></div>
 </div>
 <div class="cell docutils container">
@@ -857,19 +1004,32 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><table class="dataframe">
-<caption>A matrix: 5 × 5 of type dbl</caption>
+<caption>A matrix: 6 × 6 of type dbl</caption>
 <tbody>
-	<tr><td>0.000000</td><td>1.634131</td><td>2.224624</td><td>2.593387</td><td>2.862201</td></tr>
-	<tr><td>3.073850</td><td>3.248435</td><td>3.397022</td><td>3.526361</td><td>3.640870</td></tr>
-	<tr><td>3.743604</td><td>3.836761</td><td>3.921973</td><td>4.000492</td><td>4.073291</td></tr>
-	<tr><td>4.141149</td><td>4.204693</td><td>4.264439</td><td>4.320816</td><td>4.374183</td></tr>
-	<tr><td>4.424847</td><td>4.473066</td><td>4.519067</td><td>4.563045</td><td>4.605170</td></tr>
+	<tr><td>0.000000</td><td>1.342492</td><td>1.895690</td><td>2.249787</td><td>2.510760</td><td>2.717529</td></tr>
+	<tr><td>2.888783</td><td>3.034953</td><td>3.162457</td><td>3.275526</td><td>3.377100</td><td>3.469301</td></tr>
+	<tr><td>3.553714</td><td>3.631553</td><td>3.703768</td><td>3.771118</td><td>3.834216</td><td>3.893568</td></tr>
+	<tr><td>3.949594</td><td>4.002647</td><td>4.053026</td><td>4.100989</td><td>4.146756</td><td>4.190520</td></tr>
+	<tr><td>4.232449</td><td>4.272690</td><td>4.311374</td><td>4.348618</td><td>4.384524</td><td>4.419185</td></tr>
+	<tr><td>4.452685</td><td>4.485099</td><td>4.516495</td><td>4.546936</td><td>4.576477</td><td>4.605170</td></tr>
 </tbody>
 </table>
 </div></div>
 </div>
 <p>like R vectors, R will do the same sort of type homogenization as R vectors.</p>
 <p>Try inserting a text value in <code class="docutils literal notranslate"><span class="pre">my.mat1</span></code>and see what happens:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">str</span><span class="p">(</span><span class="n">my.mat1</span><span class="p">)</span><span class="w"> </span><span class="c1"># str() function can be used to display the data types within the matrix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> num [1:6, 1:6] 1 18 34.9 51.9 68.9 ...
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.mat1</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;one&quot;</span>
@@ -879,19 +1039,111 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><table class="dataframe">
-<caption>A matrix: 5 × 5 of type chr</caption>
+<caption>A matrix: 6 × 6 of type chr</caption>
 <tbody>
-	<tr><td>one   </td><td>5.125 </td><td>9.25  </td><td>13.375</td><td>17.5  </td></tr>
-	<tr><td>21.625</td><td>25.75 </td><td>29.875</td><td>34    </td><td>38.125</td></tr>
-	<tr><td>42.25 </td><td>46.375</td><td>50.5  </td><td>54.625</td><td>58.75 </td></tr>
-	<tr><td>62.875</td><td>67    </td><td>71.125</td><td>75.25 </td><td>79.375</td></tr>
-	<tr><td>83.5  </td><td>87.625</td><td>91.75 </td><td>95.875</td><td>100   </td></tr>
+	<tr><td>one             </td><td>3.82857142857143</td><td>6.65714285714286</td><td>9.48571428571429</td><td>12.3142857142857</td><td>15.1428571428571</td></tr>
+	<tr><td>17.9714285714286</td><td>20.8            </td><td>23.6285714285714</td><td>26.4571428571429</td><td>29.2857142857143</td><td>32.1142857142857</td></tr>
+	<tr><td>34.9428571428571</td><td>37.7714285714286</td><td>40.6            </td><td>43.4285714285714</td><td>46.2571428571429</td><td>49.0857142857143</td></tr>
+	<tr><td>51.9142857142857</td><td>54.7428571428571</td><td>57.5714285714286</td><td>60.4            </td><td>63.2285714285714</td><td>66.0571428571429</td></tr>
+	<tr><td>68.8857142857143</td><td>71.7142857142857</td><td>74.5428571428571</td><td>77.3714285714286</td><td>80.2            </td><td>83.0285714285714</td></tr>
+	<tr><td>85.8571428571429</td><td>88.6857142857143</td><td>91.5142857142857</td><td>94.3428571428571</td><td>97.1714285714286</td><td>100             </td></tr>
 </tbody>
 </table>
 </div></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">my.mat1</span></code> changed from <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">matrix:</span> <span class="pre">5</span> <span class="pre">×</span> <span class="pre">5</span> <span class="pre">of</span> <span class="pre">type</span> <span class="pre">dbl</span></code> to <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">matrix:</span> <span class="pre">5</span> <span class="pre">×</span> <span class="pre">5</span> <span class="pre">of</span> <span class="pre">type</span> <span class="pre">chr</span></code>.
-That is, inserting a string in one location converted all the elements of the matrix to the <code class="docutils literal notranslate"><span class="pre">chr</span></code> (string) data type.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">str</span><span class="p">(</span><span class="n">my.mat1</span><span class="p">)</span><span class="w"> </span><span class="c1"># str() function can be used to display the data types within the matrix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> chr [1:6, 1:6] &quot;one&quot; &quot;17.9714285714286&quot; &quot;34.9428571428571&quot; ...
+</pre></div>
+</div>
+</div>
+</div>
+<p>inserting a string in one location converted all the elements of the matrix to the <code class="docutils literal notranslate"><span class="pre">chr</span></code> (string) data type.</p>
+<p>Wait a minute! What if I want to add a new column to the matrix? Let’s try</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">column_to_add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="s">&quot;C&quot;</span><span class="p">,</span><span class="s">&quot;D&quot;</span><span class="p">,</span><span class="s">&quot;E&quot;</span><span class="p">,</span><span class="s">&quot;F&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.mat1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span><span class="p">),</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span><span class="c1"># Create a matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">str</span><span class="p">(</span><span class="n">my.mat1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> num [1:6, 1:6] 1 18 34.9 51.9 68.9 ...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.mat2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">cbind</span><span class="p">(</span><span class="n">my.mat1</span><span class="p">,</span><span class="w"> </span><span class="n">column_to_add</span><span class="p">)</span><span class="w"> </span><span class="c1"># cbind means Take a sequence of vector, matrix or data-frame arguments and combine by columns. Try rbind() for combine by rows.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">str</span><span class="p">(</span><span class="n">my.mat2</span><span class="p">)</span><span class="w"> </span><span class="c1"># look at the first line</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> chr [1:6, 1:7] &quot;1&quot; &quot;17.9714285714286&quot; &quot;34.9428571428571&quot; ...
+ - attr(*, &quot;dimnames&quot;)=List of 2
+  ..$ : NULL
+  ..$ : chr [1:7] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.mat2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 6 × 7 of type chr</caption>
+<thead>
+	<tr><th scope=col></th><th scope=col></th><th scope=col></th><th scope=col></th><th scope=col></th><th scope=col></th><th scope=col>column_to_add</th></tr>
+</thead>
+<tbody>
+	<tr><td>1               </td><td>3.82857142857143</td><td>6.65714285714286</td><td>9.48571428571429</td><td>12.3142857142857</td><td>15.1428571428571</td><td>A</td></tr>
+	<tr><td>17.9714285714286</td><td>20.8            </td><td>23.6285714285714</td><td>26.4571428571429</td><td>29.2857142857143</td><td>32.1142857142857</td><td>B</td></tr>
+	<tr><td>34.9428571428571</td><td>37.7714285714286</td><td>40.6            </td><td>43.4285714285714</td><td>46.2571428571429</td><td>49.0857142857143</td><td>C</td></tr>
+	<tr><td>51.9142857142857</td><td>54.7428571428571</td><td>57.5714285714286</td><td>60.4            </td><td>63.2285714285714</td><td>66.0571428571429</td><td>D</td></tr>
+	<tr><td>68.8857142857143</td><td>71.7142857142857</td><td>74.5428571428571</td><td>77.3714285714286</td><td>80.2            </td><td>83.0285714285714</td><td>E</td></tr>
+	<tr><td>85.8571428571429</td><td>88.6857142857143</td><td>91.5142857142857</td><td>94.3428571428571</td><td>97.1714285714286</td><td>100             </td><td>F</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># log(my.mat2[1,1]) # try use this code to test whether you can do calculation on this character matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ok, our matrix <code class="docutils literal notranslate"><span class="pre">my.mat2</span></code> all transfered from numeric into character (string) at this moment. As character can not be used for calculation, what if we want to retain this <code class="docutils literal notranslate"><span class="pre">column_to_add</span></code> in the data without changing the other numeric data type? This will be solved in the next sections 2.2.3.</p>
 </section>
 <section id="data-frames">
 <h3>2.2.3 Data frames<a class="headerlink" href="#data-frames" title="Link to this heading">#</a></h3>
@@ -1309,20 +1561,21 @@ alternative hypothesis: true location shift is not equal to 0
 <p>To see the difference in memory usage of matrices vs dataframes, try this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.mat1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">25</span><span class="p">),</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.mat1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span><span class="p">),</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 <span class="n">my.mat1</span><span class="w"> </span><span class="c1"># Again, create one matrix</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><table class="dataframe">
-<caption>A matrix: 5 × 5 of type dbl</caption>
+<caption>A matrix: 6 × 6 of type dbl</caption>
 <tbody>
-	<tr><td> 1.000</td><td> 5.125</td><td> 9.250</td><td>13.375</td><td> 17.500</td></tr>
-	<tr><td>21.625</td><td>25.750</td><td>29.875</td><td>34.000</td><td> 38.125</td></tr>
-	<tr><td>42.250</td><td>46.375</td><td>50.500</td><td>54.625</td><td> 58.750</td></tr>
-	<tr><td>62.875</td><td>67.000</td><td>71.125</td><td>75.250</td><td> 79.375</td></tr>
-	<tr><td>83.500</td><td>87.625</td><td>91.750</td><td>95.875</td><td>100.000</td></tr>
+	<tr><td> 1.00000</td><td> 3.828571</td><td> 6.657143</td><td> 9.485714</td><td>12.31429</td><td> 15.14286</td></tr>
+	<tr><td>17.97143</td><td>20.800000</td><td>23.628571</td><td>26.457143</td><td>29.28571</td><td> 32.11429</td></tr>
+	<tr><td>34.94286</td><td>37.771429</td><td>40.600000</td><td>43.428571</td><td>46.25714</td><td> 49.08571</td></tr>
+	<tr><td>51.91429</td><td>54.742857</td><td>57.571429</td><td>60.400000</td><td>63.22857</td><td> 66.05714</td></tr>
+	<tr><td>68.88571</td><td>71.714286</td><td>74.542857</td><td>77.371429</td><td>80.20000</td><td> 83.02857</td></tr>
+	<tr><td>85.85714</td><td>88.685714</td><td>91.514286</td><td>94.342857</td><td>97.17143</td><td>100.00000</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -1336,17 +1589,18 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><table class="dataframe">
-<caption>A data.frame: 5 × 5</caption>
+<caption>A data.frame: 6 × 6</caption>
 <thead>
-	<tr><th scope=col>V1</th><th scope=col>V2</th><th scope=col>V3</th><th scope=col>V4</th><th scope=col>V5</th></tr>
-	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+	<tr><th scope=col>V1</th><th scope=col>V2</th><th scope=col>V3</th><th scope=col>V4</th><th scope=col>V5</th><th scope=col>V6</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><td> 1.000</td><td> 5.125</td><td> 9.250</td><td>13.375</td><td> 17.500</td></tr>
-	<tr><td>21.625</td><td>25.750</td><td>29.875</td><td>34.000</td><td> 38.125</td></tr>
-	<tr><td>42.250</td><td>46.375</td><td>50.500</td><td>54.625</td><td> 58.750</td></tr>
-	<tr><td>62.875</td><td>67.000</td><td>71.125</td><td>75.250</td><td> 79.375</td></tr>
-	<tr><td>83.500</td><td>87.625</td><td>91.750</td><td>95.875</td><td>100.000</td></tr>
+	<tr><td> 1.00000</td><td> 3.828571</td><td> 6.657143</td><td> 9.485714</td><td>12.31429</td><td> 15.14286</td></tr>
+	<tr><td>17.97143</td><td>20.800000</td><td>23.628571</td><td>26.457143</td><td>29.28571</td><td> 32.11429</td></tr>
+	<tr><td>34.94286</td><td>37.771429</td><td>40.600000</td><td>43.428571</td><td>46.25714</td><td> 49.08571</td></tr>
+	<tr><td>51.91429</td><td>54.742857</td><td>57.571429</td><td>60.400000</td><td>63.22857</td><td> 66.05714</td></tr>
+	<tr><td>68.88571</td><td>71.714286</td><td>74.542857</td><td>77.371429</td><td>80.20000</td><td> 83.02857</td></tr>
+	<tr><td>85.85714</td><td>88.685714</td><td>91.514286</td><td>94.342857</td><td>97.17143</td><td>100.00000</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -1358,7 +1612,7 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>416 bytes
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>504 bytes
 </pre></div>
 </div>
 </div>
@@ -1370,7 +1624,7 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1464 bytes
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1616 bytes
 </pre></div>
 </div>
 </div>

@@ -397,7 +397,20 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-vs-dataframe">2.2.5 Matrix vs Dataframe</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">2.3 Further reading</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-for-your-first-complex-coding-mission">2.3 Preparing for your first complex coding mission</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-and-exporting-data">2.3.1 Importing and Exporting Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-control">2.3.2 Flow control</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-statement">2.3.2.1 If-else statement</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">2.3.2.2 For-loops</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#define-functions">2.3.2.3 Define functions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#more">More</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-manipulation">2.3.3 String manipulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-exercise-3-dna-sequence-alignment">Case Exercise 3. DNA Sequence alignment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">2.4 Further reading</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-useful-r-packages">Some useful R packages</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-useful-online-tutorial">Some useful online tutorial</a></li>
 </ul>
@@ -429,8 +442,8 @@ document.write(`
 </div>
 </div>
 <p>Note that any text after a “#” is ignored by R</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>Well-placed comments can help people (include you) to understand the functionality of the code</p>
 </div>
 <div class="cell docutils container">
@@ -844,7 +857,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v3</span><span class="p">[</span><span class="n">logical_vector</span><span class="p">]</span><span class="w"> </span><span class="c1"># You see, the FALSE in the third position leads to removal of 2023</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v3</span><span class="p">[</span><span class="n">logical_vector</span><span class="p">]</span><span class="w"> </span><span class="c1"># You see, the FALSE in the third position leads to removal of 2030</span>
 </pre></div>
 </div>
 </div>
@@ -872,10 +885,10 @@ document.write(`
 <ol class=list-inline><li>2020</li><li>2012</li><li>2024</li></ol>
 </div></div>
 </div>
-<p>Operators like <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> can only work with number, what if we have chracters? try: <code class="docutils literal notranslate"><span class="pre">%in%</span></code>.</p>
+<p>Operators like <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> can only work with number, what if we have characters? try: <code class="docutils literal notranslate"><span class="pre">%in%</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v2</span><span class="p">[</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Ned&quot;</span><span class="p">,</span><span class="s">&quot;Unknown&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">]</span><span class="w">  </span><span class="c1"># So this will only display the v2 with value have &#39;Ned&#39;, &quot;Unknown&quot;</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v2</span><span class="p">[</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Ned&quot;</span><span class="p">,</span><span class="s">&quot;Unknown&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">]</span><span class="w">  </span><span class="c1"># So this will only display the v2 with value &#39;Ned&#39;, &quot;Unknown&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -1632,8 +1645,418 @@ alternative hypothesis: true location shift is not equal to 0
 <p>Quite a big difference!</p>
 </section>
 </section>
+<section id="preparing-for-your-first-complex-coding-mission">
+<h2>2.3 Preparing for your first complex coding mission<a class="headerlink" href="#preparing-for-your-first-complex-coding-mission" title="Link to this heading">#</a></h2>
+<p>We will equiped you with more utlis for more complex mission.</p>
+<section id="importing-and-exporting-data">
+<h3>2.3.1 Importing and Exporting Data<a class="headerlink" href="#importing-and-exporting-data" title="Link to this heading">#</a></h3>
+<p>The first step of your analysis is to import your data into R. R have many utlies to import real data into the R workspace. Most frequently, you will see data stored with excel, stored with the comma separated value (csv), or stored with the tab separated value (tsv).</p>
+<p>Use the previously downloaded <code class="docutils literal notranslate"><span class="pre">document</span></code> in chapter 1. Go to case 3, find align_seq_data.csv.</p>
+<p>Use the function <code class="docutils literal notranslate"><span class="pre">read.csv</span></code>(or <code class="docutils literal notranslate"><span class="pre">read.table</span></code>) to import your data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my_first_import</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;../document/case3/align_seq_data.csv&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="c1"># header = F means we donot want any rows be treated as header </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my_first_import</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 3 × 2</caption>
+<thead>
+	<tr><th scope=col>V1</th><th scope=col>V2</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>seq3</td><td>TACGGG          </td></tr>
+	<tr><td>seq2</td><td>ATCGCCGGATTACGGG</td></tr>
+	<tr><td>seq1</td><td>CAATTCGGAT      </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">str</span><span class="p">(</span><span class="n">my_first_import</span><span class="p">)</span><span class="w"> </span><span class="c1"># regular check</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	3 obs. of  2 variables:
+ $ V1: chr  &quot;seq3&quot; &quot;seq2&quot; &quot;seq1&quot;
+ $ V2: chr  &quot;TACGGG&quot; &quot;ATCGCCGGATTACGGG&quot; &quot;CAATTCGGAT&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Writing to and saving files, with write.csv()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">write.csv</span><span class="p">(</span><span class="n">my_first_import</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;../document/case3/my_first_export.csv&quot;</span><span class="p">)</span><span class="w">  </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Check your exported file, you should have noticed something difference between import and export, while they should be the same. How to figure it out? (clue: ?write.csv())</p>
+</div>
+</section>
+<section id="flow-control">
+<h3>2.3.2 Flow control<a class="headerlink" href="#flow-control" title="Link to this heading">#</a></h3>
+<p>Assuming your mum ask you to buy some vegetables for today’s dinner.
+— “Hey Ned, could you please grab some tomatoes? If they happen to be out of stock, no worries—just pick up some pumpkins instead!” This is actually indentical to one of the Flow control used in R, that is, <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statement.</p>
+<p>in this section, we introduce three key programming concepts: <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statement, for-loops, and functions</p>
+<section id="if-else-statement">
+<h4>2.3.2.1 If-else statement<a class="headerlink" href="#if-else-statement" title="Link to this heading">#</a></h4>
+<p>Let’s write a simple statement:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vege_in_stock</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;tomatoes&quot;</span>
+<span class="nf">if </span><span class="p">(</span><span class="s">&quot;tomatoes&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">vege_in_stock</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1"># ==: Equals. Remeber that &quot;=&quot; is not Equal in R.</span>
+<span class="w">    </span><span class="nf">print </span><span class="p">(</span><span class="s">&quot;We got tomatoes!&quot;</span><span class="p">)</span>
+<span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">print </span><span class="p">(</span><span class="s">&quot;We got pumpkins...&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;We got tomatoes!&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If-else statement only accept the condition (i.e TRUE or FALSE) of length 1. For example, if we want to search whether pumpkins can be found in the store. We can do <code class="docutils literal notranslate"><span class="pre">c(&quot;tomatoes&quot;,&quot;pumpkins&quot;)</span> <span class="pre">%in%</span> <span class="pre">vege_in_stock</span></code>. The results will return <code class="docutils literal notranslate"><span class="pre">c(TRUE,</span> <span class="pre">FALSE)</span></code>, indicating we can find “pumpkins” and can not find “tomatoes”. At this time, we need to revise our code by adding either <code class="docutils literal notranslate"><span class="pre">all()</span></code> or  <code class="docutils literal notranslate"><span class="pre">any</span></code>.</p>
+</div>
+<p>If you only want to buy tomatoes or pumpkins</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">if </span><span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;tomatoes&quot;</span><span class="p">,</span><span class="s">&quot;pumpkins&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="n">vege_in_stock</span><span class="p">)){</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;yes, we can find either tomatoes or pumpkins&quot;</span><span class="p">)</span>
+<span class="p">}</span><span class="n">else</span><span class="p">{</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Nothing found&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;yes, we can find either tomatoes or pumpkins&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>if you want to make sure that tomatoes and pumpkins are both in stock</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">if </span><span class="p">(</span><span class="nf">all</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;tomatoes&quot;</span><span class="p">,</span><span class="s">&quot;pumpkins&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="n">vege_in_stock</span><span class="p">)){</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;yes, we can find both tomatoes and pumpkins&quot;</span><span class="p">)</span>
+<span class="p">}</span><span class="n">else</span><span class="p">{</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Sorry. you can not buy both veges from this store&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Sorry. you can not buy both veges from this store&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>What if we do not have both tomatoes and pumpkins in stock? You have to buy something to eat.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vege_in_stock</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;beans&quot;</span>
+<span class="nf">if </span><span class="p">(</span><span class="s">&quot;tomatoes&quot;</span><span class="w">  </span><span class="o">%in%</span><span class="w"> </span><span class="n">vege_in_stock</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1"># or use ==: Equals. Remeber that &quot;=&quot; is not Equal in R.</span>
+<span class="w">    </span><span class="nf">print </span><span class="p">(</span><span class="s">&quot;We got tomatoes!&quot;</span><span class="p">)</span>
+<span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="nf">if </span><span class="p">(</span><span class="s">&quot;pumpkins&quot;</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="n">vege_in_stock</span><span class="w"> </span><span class="p">){</span>
+<span class="w">    </span><span class="nf">print </span><span class="p">(</span><span class="s">&quot;We got pumpkins...&quot;</span><span class="p">)</span>
+<span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">print </span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;We can only buy&quot;</span><span class="p">,</span><span class="n">vege_in_stock</span><span class="p">))</span><span class="w"> </span><span class="c1"># paste() is used to glue a sequence of character together, and it can work in variables</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;We can only buy beans&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="for-loops">
+<h4>2.3.2.2 For-loops<a class="headerlink" href="#for-loops" title="Link to this heading">#</a></h4>
+<p>A loop is a sequence of statements which is specified once but which may be carried out several times in succession. Loops are useful when repeating a task over some range of input values.</p>
+<p>Assuming again you are asked to buy vegetables. However, this time, you can buy vegetables from Three different stores. Your mum ask you to <strong>only</strong> buy tomatoes, as she is pretty sure, tomatoes should be available somewhere.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vege_in_stock_store1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;pumpkins&quot;</span><span class="p">)</span>
+<span class="n">vege_in_stock_store2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;beans&quot;</span><span class="p">,</span><span class="s">&quot;pumpkins&quot;</span><span class="p">)</span>
+<span class="n">vege_in_stock_store3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;tomatoes&quot;</span><span class="p">,</span><span class="s">&quot;pumpkins&quot;</span><span class="p">)</span>
+<span class="n">store_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">vege_in_stock_store1</span><span class="p">,</span><span class="w"> </span><span class="n">vege_in_stock_store2</span><span class="p">,</span><span class="n">vege_in_stock_store3</span><span class="p">)</span>
+<span class="n">store_list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol>
+	<li>'pumpkins'</li>
+	<li><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'beans'</li><li>'pumpkins'</li></ol>
+</li>
+	<li><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'tomatoes'</li><li>'pumpkins'</li></ol>
+</li>
+</ol>
+</div></div>
+</div>
+<p>We want to repeat the same logic when we visit different stores, until we find the tomatoes, we can use for loop!
+Remeber that we need to generate a sequence of the store we want to visit. We can use seq() at the moment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seq</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">store_list</span><span class="p">))</span><span class="w"> </span><span class="c1"># We will interatively go to the first store and the second store, third store</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1</li><li>2</li><li>3</li></ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">for </span><span class="p">(</span><span class="n">shop_index</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">store_list</span><span class="p">))){</span><span class="w"> </span>
+<span class="w">    </span><span class="n">vege_in_stock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">store_list</span><span class="p">[[</span><span class="n">shop_index</span><span class="p">]]</span><span class="w"> </span><span class="c1"># Get the vegetable in different stores from the list </span>
+<span class="w">    </span><span class="nf">print </span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#39;This is store&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">shop_index</span><span class="p">))</span>
+<span class="w">    </span><span class="nf">if </span><span class="p">(</span><span class="w">  </span><span class="s">&quot;tomatoes&quot;</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="n">vege_in_stock</span><span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="nf">print </span><span class="p">(</span><span class="s">&quot;We got tomatoes!&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nf">print </span><span class="p">(</span><span class="s">&quot;No tomatoes&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;This is store 1&quot;
+[1] &quot;No tomatoes&quot;
+[1] &quot;This is store 2&quot;
+[1] &quot;No tomatoes&quot;
+[1] &quot;This is store 3&quot;
+[1] &quot;We got tomatoes!&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-functions">
+<h4>2.3.2.3 Define functions<a class="headerlink" href="#define-functions" title="Link to this heading">#</a></h4>
+<p>You will use certain functions over and over, Like the function mean(). However, you will meet situation that no existing functions can be used. You can define functions by your self! A simple instance is BMI_index() in the Chapter 1. You can calculate the BMI for different and thousands of people repeatedly.</p>
+<p>For demonstration purpose, let’s write a function that perform the exact function as mean(), that is to calculate the average for a vector:</p>
+<p><code class="docutils literal notranslate"><span class="pre">function</span></code> tells R you are about to define a function. The general function looks like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">myfirstfunction_mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span><span class="w"> </span><span class="c1"># x is the input parameter, the code was writen within the { }. return() will return the result we want</span>
+<span class="w">  </span><span class="n">sum_x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">  </span><span class="c1"># sum of x</span>
+<span class="w">  </span><span class="n">n_x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1"># total number of x </span>
+<span class="w">  </span><span class="nf">return</span><span class="p">(</span><span class="n">sum_x</span><span class="o">/</span><span class="n">n_x</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now myfirstfunction_mean is a function that computes the mean:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10</span>
+<span class="nf">identical</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="nf">myfirstfunction_mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">TRUE</div></div>
+</div>
+<p>You can define more input parameter, use “,” to separate the parameter. You can set default values as well.
+For example, the function below computes either the arithmetic or geometric mean depending on the user defined variables</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">myfirstfunction_mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">geometric</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">){</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">if</span><span class="p">(</span><span class="n">geometric</span><span class="p">){</span>
+<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">prod</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="m">1</span><span class="o">/</span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="w">  </span><span class="p">}</span><span class="n">else</span><span class="p">{</span>
+<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">myfirstfunction_mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1"># WITH DEFAULT SETTING, CALCULATE arithmetic mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">5.5</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">myfirstfunction_mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">geometric</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">4.52872868811677</div></div>
+</div>
+</section>
+<section id="more">
+<h4>More<a class="headerlink" href="#more" title="Link to this heading">#</a></h4>
+<p>You will find more flow control tools, like <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, <code class="docutils literal notranslate"><span class="pre">break</span></code> to stop the running proce within the for loop or while loop, <code class="docutils literal notranslate"><span class="pre">next</span></code> to skip the running process to next round.</p>
+</section>
+</section>
+<section id="string-manipulation">
+<h3>2.3.3 String manipulation<a class="headerlink" href="#string-manipulation" title="Link to this heading">#</a></h3>
+<p>It is important to know how to handle strings in R for several reasons:</p>
+<ul class="simple">
+<li><p>In read world, data is always messy, you need to clean your text data by your self. For example, you have a list of telephone number joined with the name, and age, like c(“Peter_12345_19”,”Mary_20232_20”, …. ).</p></li>
+<li><p>To generate appropriate text labels and titles for figures</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Function</p></th>
+<th class="head text-left"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">paste(x1,x2,sep=';')</span></code></p></td>
+<td class="text-left"><p>Join the two strings using ‘;’</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">strsplit(x,';')</span></code></p></td>
+<td class="text-left"><p>Split the string <code class="docutils literal notranslate"><span class="pre">x</span></code> at ‘;’</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">nchar(x)</span></code></p></td>
+<td class="text-left"><p>Number of characters in string <code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">toupper(x)</span></code></p></td>
+<td class="text-left"><p>Set string <code class="docutils literal notranslate"><span class="pre">x</span></code> to upper case</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tolower(x)</span></code></p></td>
+<td class="text-left"><p>Set string <code class="docutils literal notranslate"><span class="pre">x</span></code> to lower case</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Two of the most commonly used functions are paste() and strsplit()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">text1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Peter_12345_19&quot;</span>
+<span class="n">text2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Mary_20232_20&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">strsplit</span><span class="p">(</span><span class="n">text1</span><span class="p">,</span><span class="w"> </span><span class="n">split</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)</span><span class="w">  </span><span class="c1">#Split each character in the input string</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol>
+	<li><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'P'</li><li>'e'</li><li>'t'</li><li>'e'</li><li>'r'</li><li>'_'</li><li>'1'</li><li>'2'</li><li>'3'</li><li>'4'</li><li>'5'</li><li>'_'</li><li>'1'</li><li>'9'</li></ol>
+</li>
+</ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">strsplit</span><span class="p">(</span><span class="n">text1</span><span class="p">,</span><span class="w"> </span><span class="n">split</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">)</span><span class="w">  </span><span class="c1"># Using strsplit() function with delimiter</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol>
+	<li><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'Peter'</li><li>'12345'</li><li>'19'</li></ol>
+</li>
+</ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">length</span><span class="p">(</span><span class="nf">strsplit</span><span class="p">(</span><span class="n">text1</span><span class="p">,</span><span class="w"> </span><span class="n">split</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">1</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">paste</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;char1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;char3&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">collapse</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># For input of length &gt; 1. </span>
+<span class="c1"># Join the three character together and put &quot;#&quot; as the delimiter</span>
+<span class="c1"># In this case, we input on2 elements with length = 3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'char1#a#char3'</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;1st&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;2nd&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;3rd&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># For input of length 1, use the sep argument rather than collapse.</span>
+<span class="c1"># In this case, we input three elements with length = 1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'1st, 2nd, 3rd'</div></div>
+</div>
+</section>
+<section id="case-exercise-3-dna-sequence-alignment">
+<h3>Case Exercise 3. DNA Sequence alignment<a class="headerlink" href="#case-exercise-3-dna-sequence-alignment" title="Link to this heading">#</a></h3>
+<p>The alignment algorithm is straightforward.</p>
+<ol class="arabic simple">
+<li><p>read the file in documents/case3/align_seqs_data.csv (hint: ?read.csv())</p></li>
+<li><p>identify the shorter sequence (hint: length(), ifelse statement)</p></li>
+<li><p>placing the start of the shorter sequence at every position (base) of the longer sequence (the starting position), and tally the number of matching bases downstream. (hint: for loop)</p></li>
+<li><p>Next, for each starting position, calculate the “score” as the total number of matched bases. The alignment with the highest score is selected as the winner.</p></li>
+</ol>
+<p>In case of ties, any alignment with the highest score can be chosen, such as the first or last one.</p>
+</section>
+</section>
 <section id="further-reading">
-<h2>2.3 Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<h2>2.4 Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <p>Search online for “R tutorial”.</p>
 <p>Explore more functionality by using different R packages designed for different purpose! <em>Remember, all R packages come with pdf guides/documentation!</em></p>
 <section id="some-useful-r-packages">
@@ -1754,7 +2177,20 @@ alternative hypothesis: true location shift is not equal to 0
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-vs-dataframe">2.2.5 Matrix vs Dataframe</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">2.3 Further reading</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-for-your-first-complex-coding-mission">2.3 Preparing for your first complex coding mission</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-and-exporting-data">2.3.1 Importing and Exporting Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-control">2.3.2 Flow control</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-statement">2.3.2.1 If-else statement</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">2.3.2.2 For-loops</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#define-functions">2.3.2.3 Define functions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#more">More</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-manipulation">2.3.3 String manipulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-exercise-3-dna-sequence-alignment">Case Exercise 3. DNA Sequence alignment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">2.4 Further reading</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-useful-r-packages">Some useful R packages</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-useful-online-tutorial">Some useful online tutorial</a></li>
 </ul>

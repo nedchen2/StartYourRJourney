@@ -399,15 +399,18 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-for-your-first-complex-coding-mission">2.3 Preparing for your first complex coding mission</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-and-exporting-data">2.3.1 Importing and Exporting Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-control">2.3.2 Flow control</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-statement">2.3.2.1 If-else statement</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">2.3.2.2 For-loops</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#define-functions">2.3.2.3 Define functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-operators">2.3.2 Useful Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-control">2.3.3 Flow control</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-statement">2.3.3.1 If-else statement</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">2.3.3.2 For-loops</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#define-functions">2.3.3.3 Define functions</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#more">More</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-manipulation">2.3.3 String manipulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-manipulation">2.3.4 String manipulation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-exercise-3-dna-sequence-alignment">Case Exercise 3. DNA Sequence alignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-exercise-4-dna-sequence-alignment-better">Case Exercise 4. DNA Sequence alignment better</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-exercise-5-which-one-is-more-likely-to-be-e-coli">Case Exercise 5. Which one is more likely to be E.Coli</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">2.4 Further reading</a><ul class="nav section-nav flex-column">
@@ -474,7 +477,7 @@ document.write(`
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>R uses the <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code> <a class="reference external" href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/assignOps.html">operator to assign variables</a>. “=” can also work, but <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code> is perfered</p>
+<p>R uses the <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code> <a class="reference external" href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/assignOps.html">operator to assign variables</a>. “=” can also work, but <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code> is perferred. Also, you can use <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code>. <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;-</span> <span class="pre">3</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">-&gt;</span> <span class="pre">x</span></code></p>
 </div>
 </section>
 <section id="r-name-your-variables">
@@ -885,7 +888,7 @@ document.write(`
 <ol class=list-inline><li>2020</li><li>2012</li><li>2024</li></ol>
 </div></div>
 </div>
-<p>Operators like <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> can only work with number, what if we have characters? try: <code class="docutils literal notranslate"><span class="pre">%in%</span></code>.</p>
+<p>Operators like <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> can only work with number, what if we have characters? try: <code class="docutils literal notranslate"><span class="pre">%in%</span></code>. You will find more about operator in Section 2.3.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v2</span><span class="p">[</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Ned&quot;</span><span class="p">,</span><span class="s">&quot;Unknown&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">]</span><span class="w">  </span><span class="c1"># So this will only display the v2 with value &#39;Ned&#39;, &quot;Unknown&quot;</span>
@@ -1668,15 +1671,16 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><table class="dataframe">
-<caption>A data.frame: 3 × 2</caption>
+<caption>A data.frame: 4 × 2</caption>
 <thead>
 	<tr><th scope=col>V1</th><th scope=col>V2</th></tr>
 	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><td>seq3</td><td>TACGGG          </td></tr>
-	<tr><td>seq2</td><td>ATCGCCGGATTACGGG</td></tr>
 	<tr><td>seq1</td><td>CAATTCGGAT      </td></tr>
+	<tr><td>seq2</td><td>ATCGCCGGATTACGGG</td></tr>
+	<tr><td>seq3</td><td>TACGGG          </td></tr>
+	<tr><td>seq4</td><td>AGTCCGGAC       </td></tr>
 </tbody>
 </table>
 </div></div>
@@ -1688,9 +1692,9 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	3 obs. of  2 variables:
- $ V1: chr  &quot;seq3&quot; &quot;seq2&quot; &quot;seq1&quot;
- $ V2: chr  &quot;TACGGG&quot; &quot;ATCGCCGGATTACGGG&quot; &quot;CAATTCGGAT&quot;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	4 obs. of  2 variables:
+ $ V1: chr  &quot;seq1&quot; &quot;seq2&quot; &quot;seq3&quot; &quot;seq4&quot;
+ $ V2: chr  &quot;CAATTCGGAT&quot; &quot;ATCGCCGGATTACGGG&quot; &quot;TACGGG&quot; &quot;AGTCCGGAC&quot;
 </pre></div>
 </div>
 </div>
@@ -1705,16 +1709,120 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Check your exported file, you should have noticed something difference between import and export, while they should be the same. How to figure it out? (clue: ?write.csv())</p>
+<p>Check your exported file! You should have noticed something difference between import and export, while they should be the same. How to figure it out? (clue: ?write.csv())</p>
 </div>
 </section>
+<section id="useful-operators">
+<h3>2.3.2 Useful Operators<a class="headerlink" href="#useful-operators" title="Link to this heading">#</a></h3>
+<p>Operators are used to perform operations on variables and values.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Arithmetic Operator</p></th>
+<th class="head text-left"><p>Description</p></th>
+<th class="head text-left"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td class="text-left"><p>Addition</p></td>
+<td class="text-left"><p>x + y</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td class="text-left"><p>Subtraction</p></td>
+<td class="text-left"><p>x - y</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td class="text-left"><p>Multiplication</p></td>
+<td class="text-left"><p>x*y</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td class="text-left"><p>Division</p></td>
+<td class="text-left"><p>x/y</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td class="text-left"><p>Exponent or power</p></td>
+<td class="text-left"><p>x^y</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">%%</span></code></p></td>
+<td class="text-left"><p>Modulus (Remainder from division)</p></td>
+<td class="text-left"><p>x %% y</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">%/%</span></code></p></td>
+<td class="text-left"><p>Integer division</p></td>
+<td class="text-left"><p>x%/%y</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Comparison Operator (Compare number)</p></td>
+<td class="text-left"><p>Description</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+<td class="text-left"><p>Equal</p></td>
+<td class="text-left"><p>x == y</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td class="text-left"><p>Not equal</p></td>
+<td class="text-left"><p>x != y</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td class="text-left"><p>Greater than</p></td>
+<td class="text-left"><p>x &gt; y</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td class="text-left"><p>Less than</p></td>
+<td class="text-left"><p>x &lt; y</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+<td class="text-left"><p>Greater or equal</p></td>
+<td class="text-left"><p>x &gt;= y</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Logical Operator</p></td>
+<td class="text-left"><p>Description</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
+<td class="text-left"><p>Logical “and”</p></td>
+<td class="text-left"><p>TURE &amp; TRUE</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">|</span></code></p></td>
+<td class="text-left"><p>Logical “or”</p></td>
+<td class="text-left"><p>TRUE | FALSE</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">!</span></code></p></td>
+<td class="text-left"><p>Logical “not”</p></td>
+<td class="text-left"><p>!TRUE</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">any()</span></code></p></td>
+<td class="text-left"><p>TRUE if any logical element meets the condition</p></td>
+<td class="text-left"><p>any(c(TRUE, FALSE))</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">all()</span></code></p></td>
+<td class="text-left"><p>TRUE if all logical elements meet the condition</p></td>
+<td class="text-left"><p>all(c(TRUE, FALSE))</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Other Operator</p></td>
+<td class="text-left"><p>Description</p></td>
+<td class="text-left"><p>Example</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">identical</span></code></p></td>
+<td class="text-left"><p>TRUE if a equals to b. a and b could be vector, matrix, dataframe…</p></td>
+<td class="text-left"><p>identical(a,b)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">%in%</span></code></p></td>
+<td class="text-left"><p>TRUE if any elements in vector a is in the following vector b.</p></td>
+<td class="text-left"><p>a %in% b</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Using operators properly is important for the following section 2.3.2</p>
+</section>
 <section id="flow-control">
-<h3>2.3.2 Flow control<a class="headerlink" href="#flow-control" title="Link to this heading">#</a></h3>
+<h3>2.3.3 Flow control<a class="headerlink" href="#flow-control" title="Link to this heading">#</a></h3>
 <p>Assuming your mum ask you to buy some vegetables for today’s dinner.
 — “Hey Ned, could you please grab some tomatoes? If they happen to be out of stock, no worries—just pick up some pumpkins instead!” This is actually indentical to one of the Flow control used in R, that is, <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statement.</p>
 <p>in this section, we introduce three key programming concepts: <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statement, for-loops, and functions</p>
 <section id="if-else-statement">
-<h4>2.3.2.1 If-else statement<a class="headerlink" href="#if-else-statement" title="Link to this heading">#</a></h4>
+<h4>2.3.3.1 If-else statement<a class="headerlink" href="#if-else-statement" title="Link to this heading">#</a></h4>
 <p>Let’s write a simple statement:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1735,9 +1843,10 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If-else statement only accept the condition (i.e TRUE or FALSE) of length 1. For example, if we want to search whether pumpkins can be found in the store. We can do <code class="docutils literal notranslate"><span class="pre">c(&quot;tomatoes&quot;,&quot;pumpkins&quot;)</span> <span class="pre">%in%</span> <span class="pre">vege_in_stock</span></code>. The results will return <code class="docutils literal notranslate"><span class="pre">c(TRUE,</span> <span class="pre">FALSE)</span></code>, indicating we can find “pumpkins” and can not find “tomatoes”. At this time, we need to revise our code by adding either <code class="docutils literal notranslate"><span class="pre">all()</span></code> or  <code class="docutils literal notranslate"><span class="pre">any</span></code>.</p>
+<p>If-else statement only accept the condition (i.e TRUE or FALSE) of length 1. For example, if we want to search whether tomatoes and pumpkins can be found in the store. We can do <code class="docutils literal notranslate"><span class="pre">c(&quot;tomatoes&quot;,&quot;pumpkins&quot;)</span> <span class="pre">%in%</span> <span class="pre">vege_in_stock</span></code>. The results will return <code class="docutils literal notranslate"><span class="pre">c(TRUE,</span> <span class="pre">FALSE)</span></code>, indicating we can find “tomatoes” and can not find “pumpkins” within the variable “vege_in_stock”.</p>
+<p>To form a more complex logic condition, one option for you is to use either <code class="docutils literal notranslate"><span class="pre">all()</span></code> or  <code class="docutils literal notranslate"><span class="pre">any()</span></code> according to different situation.</p>
 </div>
-<p>If you only want to buy tomatoes or pumpkins</p>
+<p>If you want to buy either tomatoes or pumpkins,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">if </span><span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;tomatoes&quot;</span><span class="p">,</span><span class="s">&quot;pumpkins&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="n">vege_in_stock</span><span class="p">)){</span>
@@ -1754,7 +1863,7 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 </div>
 </div>
-<p>if you want to make sure that tomatoes and pumpkins are both in stock</p>
+<p>if you want to make sure that tomatoes and pumpkins are both in stock,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">if </span><span class="p">(</span><span class="nf">all</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;tomatoes&quot;</span><span class="p">,</span><span class="s">&quot;pumpkins&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="n">vege_in_stock</span><span class="p">)){</span>
@@ -1771,7 +1880,7 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 </div>
 </div>
-<p>What if we do not have both tomatoes and pumpkins in stock? You have to buy something to eat.</p>
+<p>What if we have neither tomatoes nor pumpkins in stock?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vege_in_stock</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;beans&quot;</span>
@@ -1780,7 +1889,7 @@ alternative hypothesis: true location shift is not equal to 0
 <span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="nf">if </span><span class="p">(</span><span class="s">&quot;pumpkins&quot;</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="n">vege_in_stock</span><span class="w"> </span><span class="p">){</span>
 <span class="w">    </span><span class="nf">print </span><span class="p">(</span><span class="s">&quot;We got pumpkins...&quot;</span><span class="p">)</span>
 <span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nf">print </span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;We can only buy&quot;</span><span class="p">,</span><span class="n">vege_in_stock</span><span class="p">))</span><span class="w"> </span><span class="c1"># paste() is used to glue a sequence of character together, and it can work in variables</span>
+<span class="w">    </span><span class="nf">print </span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;We can only buy&quot;</span><span class="p">,</span><span class="n">vege_in_stock</span><span class="p">))</span><span class="w"> </span><span class="c1"># paste() is used to join a sequence of character together, and it can work in variables</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1793,15 +1902,15 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 </section>
 <section id="for-loops">
-<h4>2.3.2.2 For-loops<a class="headerlink" href="#for-loops" title="Link to this heading">#</a></h4>
+<h4>2.3.3.2 For-loops<a class="headerlink" href="#for-loops" title="Link to this heading">#</a></h4>
 <p>A loop is a sequence of statements which is specified once but which may be carried out several times in succession. Loops are useful when repeating a task over some range of input values.</p>
-<p>Assuming again you are asked to buy vegetables. However, this time, you can buy vegetables from Three different stores. Your mum ask you to <strong>only</strong> buy tomatoes, as she is pretty sure, tomatoes should be available somewhere.</p>
+<p>Assuming again you are asked to buy vegetables. However, this time, you can buy vegetables from three different stores. Your mum asked you to <strong>only</strong> buy tomatoes, because she was pretty sure that tomatoes should be available somewhere.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vege_in_stock_store1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;pumpkins&quot;</span><span class="p">)</span>
 <span class="n">vege_in_stock_store2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;beans&quot;</span><span class="p">,</span><span class="s">&quot;pumpkins&quot;</span><span class="p">)</span>
 <span class="n">vege_in_stock_store3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;tomatoes&quot;</span><span class="p">,</span><span class="s">&quot;pumpkins&quot;</span><span class="p">)</span>
-<span class="n">store_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">vege_in_stock_store1</span><span class="p">,</span><span class="w"> </span><span class="n">vege_in_stock_store2</span><span class="p">,</span><span class="n">vege_in_stock_store3</span><span class="p">)</span>
+<span class="n">store_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">vege_in_stock_store1</span><span class="p">,</span><span class="w"> </span><span class="n">vege_in_stock_store2</span><span class="p">,</span><span class="n">vege_in_stock_store3</span><span class="p">)</span><span class="w"> </span><span class="c1"># remember we can use list to store vector</span>
 <span class="n">store_list</span>
 </pre></div>
 </div>
@@ -1870,13 +1979,13 @@ Remeber that we need to generate a sequence of the store we want to visit. We ca
 </div>
 </section>
 <section id="define-functions">
-<h4>2.3.2.3 Define functions<a class="headerlink" href="#define-functions" title="Link to this heading">#</a></h4>
-<p>You will use certain functions over and over, Like the function mean(). However, you will meet situation that no existing functions can be used. You can define functions by your self! A simple instance is BMI_index() in the Chapter 1. You can calculate the BMI for different and thousands of people repeatedly.</p>
-<p>For demonstration purpose, let’s write a function that perform the exact function as mean(), that is to calculate the average for a vector:</p>
+<h4>2.3.3.3 Define functions<a class="headerlink" href="#define-functions" title="Link to this heading">#</a></h4>
+<p>You will use certain functions over and over, Like the function <code class="docutils literal notranslate"><span class="pre">mean()</span></code>. However, you will encounter situation that no existing functions can be used. You can define functions by your self! A simple instance is <code class="docutils literal notranslate"><span class="pre">BMI_index()</span></code> in the Chapter 1. You can calculate the BMI for different and thousands of people repeatedly.</p>
+<p>For demonstration purpose, let’s write a function that perform the exact function as <code class="docutils literal notranslate"><span class="pre">mean()</span></code>, that is to calculate the average for a vector:</p>
 <p><code class="docutils literal notranslate"><span class="pre">function</span></code> tells R you are about to define a function. The general function looks like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">myfirstfunction_mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span><span class="w"> </span><span class="c1"># x is the input parameter, the code was writen within the { }. return() will return the result we want</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">myfirstfunction</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span><span class="w"> </span><span class="c1"># x is the input parameter, the code was writen within the { }. return() will return the result we want</span>
 <span class="w">  </span><span class="n">sum_x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">  </span><span class="c1"># sum of x</span>
 <span class="w">  </span><span class="n">n_x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1"># total number of x </span>
 <span class="w">  </span><span class="nf">return</span><span class="p">(</span><span class="n">sum_x</span><span class="o">/</span><span class="n">n_x</span><span class="p">)</span>
@@ -1885,11 +1994,20 @@ Remeber that we need to generate a sequence of the store we want to visit. We ca
 </div>
 </div>
 </div>
-<p>Now myfirstfunction_mean is a function that computes the mean:</p>
+<p>Now <code class="docutils literal notranslate"><span class="pre">myfirstfunction</span></code> is a function that computes the mean:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10</span>
-<span class="nf">identical</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="nf">myfirstfunction_mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nf">myfirstfunction</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">5.5</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">identical</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="nf">myfirstfunction</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="c1"># identical() is a function to compare two variables</span>
 </pre></div>
 </div>
 </div>
@@ -1900,7 +2018,7 @@ Remeber that we need to generate a sequence of the store we want to visit. We ca
 For example, the function below computes either the arithmetic or geometric mean depending on the user defined variables</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">myfirstfunction_mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">geometric</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">){</span><span class="w"> </span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">myfirstfunction</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">geometric</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">){</span><span class="w"> </span>
 <span class="w">  </span><span class="nf">if</span><span class="p">(</span><span class="n">geometric</span><span class="p">){</span>
 <span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">prod</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="m">1</span><span class="o">/</span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
 <span class="w">  </span><span class="p">}</span><span class="n">else</span><span class="p">{</span>
@@ -1913,7 +2031,7 @@ For example, the function below computes either the arithmetic or geometric mean
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">myfirstfunction_mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1"># WITH DEFAULT SETTING, CALCULATE arithmetic mean</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">myfirstfunction</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1"># WITH DEFAULT SETTING, CALCULATE arithmetic mean</span>
 </pre></div>
 </div>
 </div>
@@ -1922,24 +2040,59 @@ For example, the function below computes either the arithmetic or geometric mean
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">myfirstfunction_mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">geometric</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">myfirstfunction</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">geometric</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span><span class="c1"># when set geometric = TRUE, we calculate the geometric mean</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">4.52872868811677</div></div>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When you want to output more than one output elements. You could use list()!</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">myfirstfunction</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span><span class="w"> </span>
+<span class="w">  </span><span class="n">mean1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">prod</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="m">1</span><span class="o">/</span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="w">   </span>
+<span class="w">  </span><span class="n">mean2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">  </span><span class="nf">return</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="w"> </span><span class="n">geometric_mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean1</span><span class="p">,</span><span class="w"> </span><span class="n">arithmetic_mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean2</span><span class="w"> </span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10</span>
+<span class="nf">myfirstfunction</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><dl>
+	<dt>$geometric_mean</dt>
+		<dd>4.52872868811677</dd>
+	<dt>$arithmetic_mean</dt>
+		<dd>5.5</dd>
+</dl>
+</div></div>
+</div>
 </section>
 <section id="more">
 <h4>More<a class="headerlink" href="#more" title="Link to this heading">#</a></h4>
-<p>You will find more flow control tools, like <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, <code class="docutils literal notranslate"><span class="pre">break</span></code> to stop the running proce within the for loop or while loop, <code class="docutils literal notranslate"><span class="pre">next</span></code> to skip the running process to next round.</p>
+<p>You will find more flow control tools, like,</p>
+<p>1.<code class="docutils literal notranslate"><span class="pre">while</span></code> loop,</p>
+<p>2.<code class="docutils literal notranslate"><span class="pre">break</span></code> to stop the running process of the for loop or while loop,</p>
+<p>3.<code class="docutils literal notranslate"><span class="pre">next</span></code> to skip the current running loop to next loop.</p>
 </section>
 </section>
 <section id="string-manipulation">
-<h3>2.3.3 String manipulation<a class="headerlink" href="#string-manipulation" title="Link to this heading">#</a></h3>
+<h3>2.3.4 String manipulation<a class="headerlink" href="#string-manipulation" title="Link to this heading">#</a></h3>
 <p>It is important to know how to handle strings in R for several reasons:</p>
 <ul class="simple">
-<li><p>In read world, data is always messy, you need to clean your text data by your self. For example, you have a list of telephone number joined with the name, and age, like c(“Peter_12345_19”,”Mary_20232_20”, …. ).</p></li>
+<li><p>In read world, data is always messy, you need to clean your text data for further analysis.
+For example, you have a list of telephone number joined with the name, and age, like c(“Peter_12345_19”,”Mary_20232_20”, …. ).</p></li>
 <li><p>To generate appropriate text labels and titles for figures</p></li>
 </ul>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -2012,14 +2165,18 @@ For example, the function below computes either the arithmetic or geometric mean
 </ol>
 </div></div>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>strsplit() will return a list to you. How to extract the element from the list?</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">length</span><span class="p">(</span><span class="nf">strsplit</span><span class="p">(</span><span class="n">text1</span><span class="p">,</span><span class="w"> </span><span class="n">split</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">length</span><span class="p">(</span><span class="nf">strsplit</span><span class="p">(</span><span class="n">text1</span><span class="p">,</span><span class="w"> </span><span class="n">split</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">)[[</span><span class="m">1</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">1</div></div>
+<div class="output text_html">3</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2047,12 +2204,52 @@ For example, the function below computes either the arithmetic or geometric mean
 <h3>Case Exercise 3. DNA Sequence alignment<a class="headerlink" href="#case-exercise-3-dna-sequence-alignment" title="Link to this heading">#</a></h3>
 <p>The alignment algorithm is straightforward.</p>
 <ol class="arabic simple">
-<li><p>read the file in documents/case3/align_seqs_data.csv (hint: ?read.csv())</p></li>
-<li><p>identify the shorter sequence (hint: length(), ifelse statement)</p></li>
-<li><p>placing the start of the shorter sequence at every position (base) of the longer sequence (the starting position), and tally the number of matching bases downstream. (hint: for loop)</p></li>
-<li><p>Next, for each starting position, calculate the “score” as the total number of matched bases. The alignment with the highest score is selected as the winner.</p></li>
+<li><p>read the file in documents/case3/align_seqs_data.csv (hint: ?<code class="docutils literal notranslate"><span class="pre">read.csv()</span></code>)</p></li>
+<li><p>identify the shorter sequence (hint: <code class="docutils literal notranslate"><span class="pre">length()</span></code>, <code class="docutils literal notranslate"><span class="pre">ifelse</span> <span class="pre">statement</span></code>)</p></li>
+<li><p>placing the start of the shorter sequence at every position (base) of the longer sequence (the starting position), and calculate the number of matching bases (i.e. A == A). (hint: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>, <code class="docutils literal notranslate"><span class="pre">ifelse</span> <span class="pre">statement</span></code>. try to start with writing the code for a single starting point, and then expand your work in different position.)</p></li>
+<li><p>Next, for each starting position, calculate the “score” as the total number of matched bases. The alignment with the highest score is selected as the winner (best matched).</p></li>
 </ol>
-<p>In case of ties, any alignment with the highest score can be chosen, such as the first or last one.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Example</p></th>
+<th class="head text-left"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Seq1</p></td>
+<td class="text-left"><p>ATCG</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Seq2</p></td>
+<td class="text-left"><p>TC</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Best Matching bases</p></td>
+<td class="text-left"><p>2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Start position</p></td>
+<td class="text-left"><p>2</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Illustration</p></td>
+<td class="text-left"><p>ATCG</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p></p></td>
+<td class="text-left"><p>.TC.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Try to define a function for each steps. Output your best matched score and the corresponding start point for <code class="docutils literal notranslate"><span class="pre">seq</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">seq</span> <span class="pre">2</span></code>!</p>
+</section>
+<section id="case-exercise-4-dna-sequence-alignment-better">
+<h3>Case Exercise 4. DNA Sequence alignment better<a class="headerlink" href="#case-exercise-4-dna-sequence-alignment-better" title="Link to this heading">#</a></h3>
+<p>Try using your function to output the best matched score for seq2 and seq4. How many best matching result do you have?</p>
+<p>We may find ties in the alignment, that is, you may find more than one matching result to share a best matching score.</p>
+<p>How to revise your script and output all possible results?</p>
+</section>
+<section id="case-exercise-5-which-one-is-more-likely-to-be-e-coli">
+<h3>Case Exercise 5. Which one is more likely to be E.Coli<a class="headerlink" href="#case-exercise-5-which-one-is-more-likely-to-be-e-coli" title="Link to this heading">#</a></h3>
+<p>Taxonomic assignment for the sequence is important for us to gain further biological understanding. To have a basic taste of this procedure, we will use the <a class="reference external" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a>.</p>
+<p>In essence, BLAST finds regions of similarity between biological sequences (similar but more complex to want you have done in the previous exercise!). The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.</p>
+<p>Try to use the document/case5/bacteria_ref.fa, copy and paste it to the BLASTn. After you have known what this reference sequence is, use your defined function to find the best matched score for bacteria1.fa and bacteria2.fa, respectively.(clue: read fasta file with <code class="docutils literal notranslate"><span class="pre">readLines()</span></code>)</p>
 </section>
 </section>
 <section id="further-reading">
@@ -2179,15 +2376,18 @@ For example, the function below computes either the arithmetic or geometric mean
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-for-your-first-complex-coding-mission">2.3 Preparing for your first complex coding mission</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-and-exporting-data">2.3.1 Importing and Exporting Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-control">2.3.2 Flow control</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-statement">2.3.2.1 If-else statement</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">2.3.2.2 For-loops</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#define-functions">2.3.2.3 Define functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-operators">2.3.2 Useful Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-control">2.3.3 Flow control</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-statement">2.3.3.1 If-else statement</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">2.3.3.2 For-loops</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#define-functions">2.3.3.3 Define functions</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#more">More</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-manipulation">2.3.3 String manipulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-manipulation">2.3.4 String manipulation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-exercise-3-dna-sequence-alignment">Case Exercise 3. DNA Sequence alignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-exercise-4-dna-sequence-alignment-better">Case Exercise 4. DNA Sequence alignment better</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-exercise-5-which-one-is-more-likely-to-be-e-coli">Case Exercise 5. Which one is more likely to be E.Coli</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">2.4 Further reading</a><ul class="nav section-nav flex-column">

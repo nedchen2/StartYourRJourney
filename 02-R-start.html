@@ -62,6 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '02-R-start';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 3. Introduction to Microbiome Analysis" href="03-R-start.html" />
     <link rel="prev" title="Chapter 1. R: The Beginning of Your Data Journey" href="01-R-start.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,6 +184,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01-R-start.html">Chapter 1. R: The Beginning of Your Data Journey</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 2. R basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-R-start.html">Chapter 3. Introduction to Microbiome Analysis</a></li>
 </ul>
 
     </div>
@@ -451,7 +453,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="c1"># display it</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="c1"># display</span>
 </pre></div>
 </div>
 </div>
@@ -468,7 +470,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a_squared</span><span class="w"> </span><span class="c1"># display it</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a_squared</span><span class="w"> </span><span class="c1"># display </span>
 </pre></div>
 </div>
 </div>
@@ -631,7 +633,28 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_html">TRUE</div></div>
 </div>
-<p><em>What just happened?!</em> R maps all values other than <code class="docutils literal notranslate"><span class="pre">0</span></code> to logical <code class="docutils literal notranslate"><span class="pre">True</span></code>, and <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>. This can be useful in some cases, for example, when you want to convert all your data to Presence-Absence only.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">as.numeric</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">1</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">as.numeric</span><span class="p">(</span><span class="kc">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0</div></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>R maps all numerical values other than <code class="docutils literal notranslate"><span class="pre">0</span></code> to logical <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>, and <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>. Reversely, <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> will be converted to 1, while <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> will be converted to 0.</p>
+</div>
 </section>
 </section>
 <section id="r-vector-matrix-dataframe-lists">
@@ -666,7 +689,7 @@ document.write(`
 <p>Similarly, use is.* to check the data types.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">is.vector</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="c1"># check if v&#39;s a vector</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">is.vector</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="c1"># check vector data type</span>
 </pre></div>
 </div>
 </div>
@@ -908,7 +931,6 @@ document.write(`
 <section id="matrices-and-arrays">
 <h3>2.2.2 Matrices and arrays<a class="headerlink" href="#matrices-and-arrays" title="Link to this heading">#</a></h3>
 <p>A R “matrix” is a 2 dimensional vector (has both rows and columns). On the other word, the matrix is built on the top of vector.</p>
-<p>Try this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="o">:</span><span class="m">36</span><span class="w"> </span><span class="c1"># you can generate a series of number by &quot;start:end&quot;</span>
@@ -1473,7 +1495,7 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/e211aef045f1cec127828c58664144c265a4f09fac4431450cfe9ed33032e3e4.png"><img alt="_images/e211aef045f1cec127828c58664144c265a4f09fac4431450cfe9ed33032e3e4.png" src="_images/e211aef045f1cec127828c58664144c265a4f09fac4431450cfe9ed33032e3e4.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="_images/08ab5941d21ea1a633e8cbb0a6b836c0489c062810a18f07866402421f05a9a6.png"><img alt="_images/08ab5941d21ea1a633e8cbb0a6b836c0489c062810a18f07866402421f05a9a6.png" src="_images/08ab5941d21ea1a633e8cbb0a6b836c0489c062810a18f07866402421f05a9a6.png" style="width: 420px; height: 420px;" /></a>
 </div>
 </div>
 </section>
@@ -1662,6 +1684,10 @@ alternative hypothesis: true location shift is not equal to 0
 </pre></div>
 </div>
 </div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check again with your working directory. Whether this relative directory can find the csv file?</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2338,6 +2364,15 @@ For example, you have a list of telephone number joined with the name, and age, 
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Chapter 1. R: The Beginning of Your Data Journey</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="03-R-start.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 3. Introduction to Microbiome Analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

@@ -6,3 +6,4 @@ root: intro
 chapters:
 - file: 01-R-start
 - file: 02-R-start
+- file: 03-R-start

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Chapter 3. Introduction to Microbiome Analysis &#8212; My sample book</title>
+    <title>Chapter 3. Introduction to Microbiome Analysis &#8212; R Programming for Biologists</title>
   
   
   
@@ -154,8 +154,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="R Programming for Biologists - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="R Programming for Biologists - Home"/>`);</script>
   
   
 </a></div>
@@ -390,14 +390,19 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#three-domain-theory">Three-Domain Theory</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-of-amplicon-sequencing-16s-18s-its">3.1.3.2 Principles of Amplicon Sequencing (16S/18S/ITS)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#common-amplicon-sequencing-steps">3.1.3.3 Common Amplicon Sequencing Steps</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioinformatics-challenge-sequencing-and-alignment">3.1.3.4 Bioinformatics challenge: Sequencing and Alignment</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-and-cons-of-16s-rrna-sequencing">3.1.3.5 Pros and Cons of 16S rRNA Sequencing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#human-microbiome">3.1.3.2 Human Microbiome</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-of-amplicon-sequencing-16s-18s-its">3.1.3.3 Principles of Amplicon Sequencing (16S/18S/ITS)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#common-amplicon-sequencing-steps">3.1.3.4 Common Amplicon Sequencing Steps</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understand-the-ecological-property-of-microbiome-alpha-and-beta-diversity">3.1.4 Understand the Ecological Property of Microbiome: Alpha and Beta Diversity</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ordination">3.1.4.1 Ordination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bioinformatics-challenge-sequencing-and-alignment">3.1.4 Bioinformatics challenge: Sequencing and Alignment</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-control">3.1.4.1 Quality Control</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alignment">3.1.4.2 Alignment</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-and-cons-of-16s-rrna-sequencing">3.1.4.3 Pros and Cons of 16S rRNA Sequencing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understand-the-ecological-property-of-microbiome-alpha-and-beta-diversity">3.1.5 Understand the Ecological Property of Microbiome: Alpha and Beta Diversity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ordination">3.1.5.1 Ordination</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-exercise-6">Case Exercise 6</a></li>
 </ul>
 </li>
@@ -480,11 +485,10 @@ document.write(`
 </section>
 <section id="introduction-to-amplicon-sequencing">
 <h3>3.1.3 Introduction to Amplicon Sequencing<a class="headerlink" href="#introduction-to-amplicon-sequencing" title="Link to this heading">#</a></h3>
-<p>In this section, you should get a basic idea of ,</p>
+<p>In this section, you should get a basic idea of,</p>
 <ol class="arabic simple">
 <li><p>what is a tree of life,</p></li>
 <li><p>why 16S region could be used to classify the microorganisms?</p></li>
-<li><p>what’s the limitation of using Amplicon Sequencing?</p></li>
 </ol>
 <section id="tree-of-life">
 <h4>3.1.3.1 Tree of Life<a class="headerlink" href="#tree-of-life" title="Link to this heading">#</a></h4>
@@ -507,7 +511,8 @@ document.write(`
 </section>
 <section id="three-domain-theory">
 <h5>Three-Domain Theory<a class="headerlink" href="#three-domain-theory" title="Link to this heading">#</a></h5>
-<p>In the 1970s, <strong>Carl Woese</strong> of the University of Illinois and his colleagues published the first “universal tree of life” by using the <strong>RNA tools</strong>. They presented the tree as three great trunks. Our own trunk, known as eukaryotes, includes animals, plants, fungi and protozoans. A second trunk included many familiar bacteria like Escherichia coli. The third trunk that Woese and his colleagues identified included little-known microbes that live in extreme places like hot springs and oxygen-free wetlands. Woese and his colleagues called this third trunk Archaea. By 1990, Woese adopted the term <strong>“domain”</strong> for the three new branches of life. A major change to the Linnaean system was the addition of the <strong>“domain”</strong>. A <strong>domain</strong> is a taxon that is larger and more inclusive than the kingdom</p>
+<p>In the 1970s, <strong>Carl Woese</strong> of the University of Illinois and his colleagues published the first “universal tree of life” by using the <strong>RNA tools</strong>. They presented the tree as three great trunks. Our own trunk, known as eukaryotes, includes animals, plants, fungi and protozoans. A second trunk included many familiar bacteria like Escherichia coli. The third trunk that Woese and his colleagues identified included little-known microbes that live in extreme places like hot springs and oxygen-free wetlands. Woese and his colleagues called this third trunk <em>Archaea</em>.</p>
+<p>By 1990, Woese adopted the term <strong>“domain”</strong> for the three new branches of life. A major change to the Linnaean system was the addition of the <strong>“domain”</strong>. A <strong>domain</strong> is a taxon that is larger and more inclusive than the kingdom.</p>
 <p>.
 .
 .
@@ -517,8 +522,24 @@ document.write(`
 <p><a class="reference external" href="https://www.nature.com/articles/nmicrobiol201648">New view of the tree of life, 2016</a></p>
 </section>
 </section>
+<section id="human-microbiome">
+<h4>3.1.3.2 Human Microbiome<a class="headerlink" href="#human-microbiome" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Our human body contains about 10X as many microbes as human cells, including <em>Bacteria</em>, <em>Archaea</em>, <em>viruses</em> and <em>Fungi</em>.</p></li>
+<li><p>Microbe community differs accross human body</p></li>
+</ul>
+<img src="./graphics/humanmicrobiome.png" alt="human_micro.png" width="500px"> 
+<p><a class="reference external" href="https://www.nature.com/articles/nrg3182">The human microbiome: at the interface of health and disease</a></p>
+<ul class="simple">
+<li><p>First Introduction occurs at birth</p></li>
+<li><p>Microbes provides enzymes for digestions and other compounds products such as Short-Chain Fatty Acids (SCFAs).</p></li>
+<li><p>Carriage of microbial taxa varies while the metabolic pathways remain stable within the healthy population.</p></li>
+</ul>
+<img src="./graphics/41586_2012_Article_BFnature11234_Fig2_HTML.jpg" alt="human_micro.png" width="800px"> 
+<p><a class="reference external" href="https://www.nature.com/articles/nature11234">Structure, function and diversity of the healthy human microbiome</a></p>
+</section>
 <section id="principles-of-amplicon-sequencing-16s-18s-its">
-<h4>3.1.3.2 Principles of Amplicon Sequencing (16S/18S/ITS)<a class="headerlink" href="#principles-of-amplicon-sequencing-16s-18s-its" title="Link to this heading">#</a></h4>
+<h4>3.1.3.3 Principles of Amplicon Sequencing (16S/18S/ITS)<a class="headerlink" href="#principles-of-amplicon-sequencing-16s-18s-its" title="Link to this heading">#</a></h4>
 <blockquote>
 <div><p>If I have seen further, it is by standing on the shoulders of giants. – Sir Isaac Newton</p>
 </div></blockquote>
@@ -530,7 +551,7 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-left"><p>Carl Woese</p></td>
-<td class="text-left"><p>Propose the Archaea (a new domain of life) in 1977 through a pioneering phylogenetic taxonomy of 16S ribosomal RNA, a technique that has revolutionized microbiology. It is suggested that 16S rRNA gene can be used as a reliable molecular clock for <em>Bacteria</em> and <em>Archaea</em> because The 16S region contains conserved sequences for broad identification and variable regions that allow differentiation between species and strains.</p></td>
+<td class="text-left"><p>Propose the Archaea (a new domain of life) in 1977 through a pioneering phylogenetic taxonomy of 16S ribosomal RNA, a technique that has revolutionized microbiology. It is suggested that 16S rRNA gene can be used as a reliable molecular clock for <em>Bacteria</em> and <em>Archaea</em> because the 16S region contains conserved sequences for broad identification and variable regions that allow differentiation between species and strains.</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>George E. Fox</p></td>
 <td class="text-left"><p>Collaboration with Carl Woese. Three-domain system Towards a natural system of organisms: proposal for the domains Archaea, Bacteria, and Eucarya.</p></td>
@@ -541,14 +562,24 @@ document.write(`
 </tbody>
 </table>
 </div>
-<hr class="docutils" />
-<img src="./graphics/16s_region.png" alt="16s_region.png" width="500px">
-<p>A summary of the four hypervariable region strategies for amplification of variable regions V1–V2, V3–V4, V5–V7, and V7–V9 in the 16S rRNA gene (positioning is based on the E.coli 16S rRNA gene) <a class="reference external" href="https://www.nature.com/articles/s41598-023-30764-z">López-Aladid, R., et al., 2023</a> .</p>
+<p><strong>So What is 16S rRNA?</strong></p>
+<ul class="simple">
+<li><p>Part of the subunit of prokaryotic ribosome</p></li>
+<li><p>widely conserved (<em>Bacteria</em> and <em>Archaea</em>), but have hypervariable regions for differentiation.</p></li>
+</ul>
+<img src="./graphics/41467_2019_13036_Fig1_HTML.png" alt="16s_region.png" width="500px">
+<p>The choice of using different region is pivotal for optimizing phylogenetic resolution, cost-effectiveness, and microbial diversity assessment. You need to make a trade-off.</p>
+<p>You may find the article below useful:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11264597/">https://pmc.ncbi.nlm.nih.gov/articles/PMC11264597/</a></p></li>
+<li><p><a class="reference external" href="https://www.nature.com/articles/sdata20197">https://www.nature.com/articles/sdata20197</a></p></li>
+<li><p><a class="reference external" href="https://www.nature.com/articles/s41467-019-13036-1">https://www.nature.com/articles/s41467-019-13036-1</a></p></li>
+<li><p><a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/imo2.9">https://onlinelibrary.wiley.com/doi/full/10.1002/imo2.9</a></p></li>
+</ol>
 <p>Other types of amplicon sequencing include 18S and ITS sequencing, which are used to study <em>fungi</em>.</p>
-<p>For more history about 16s, read: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/imo2.9">Selected mile stone for 16S - Jin, J., 2024</a></p>
 </section>
 <section id="common-amplicon-sequencing-steps">
-<h4>3.1.3.3 Common Amplicon Sequencing Steps<a class="headerlink" href="#common-amplicon-sequencing-steps" title="Link to this heading">#</a></h4>
+<h4>3.1.3.4 Common Amplicon Sequencing Steps<a class="headerlink" href="#common-amplicon-sequencing-steps" title="Link to this heading">#</a></h4>
 <p>The Schematic diagram describe the overview of 16s sequencing <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S1471491411000232">Heidi H. Kong, 2011</a>:</p>
 <img src="./graphics/OverviewScheme.jpg" alt="16s_OVERVIEW.png" width="500px">
 <p>Common Amplicon Sequencing can be split into several steps:</p>
@@ -578,12 +609,45 @@ document.write(`
 </ul>
 <p>This <a class="reference external" href="https://www.youtube.com/watch?v=fCd6B5HRaZ8">Link</a> from the most popular platform illumina introduce the NGS sequencing in a clear way.</p>
 </section>
+</section>
 <section id="bioinformatics-challenge-sequencing-and-alignment">
-<h4>3.1.3.4 Bioinformatics challenge: Sequencing and Alignment<a class="headerlink" href="#bioinformatics-challenge-sequencing-and-alignment" title="Link to this heading">#</a></h4>
+<h3>3.1.4 Bioinformatics challenge: Sequencing and Alignment<a class="headerlink" href="#bioinformatics-challenge-sequencing-and-alignment" title="Link to this heading">#</a></h3>
+<p>Terminology</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Term</p></th>
+<th class="head text-left"><p>Explain</p></th>
+<th class="head text-left"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Reads Length</p></td>
+<td class="text-left"><p>The number of bases present in one read</p></td>
+<td class="text-left"><p>Longer reads can generally produce better results</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Sequencing Depth (or sometimes simply depth)</p></td>
+<td class="text-left"><p>The average number of times a given position in the genome is sequenced.</p></td>
+<td class="text-left"><p>More important in whole genome sequencing</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Number of reads</p></td>
+<td class="text-left"><p>Total amount of reads produced for a sample</p></td>
+<td class="text-left"><p>In 16s rRNA gene sequencing, we can consider number of reads the same as sampling depth, as we know which regrion are we targeting</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Coverage</p></td>
+<td class="text-left"><p>The proportion or percentage of a genome that has been sequenced at a certain depth.</p></td>
+<td class="text-left"><p>More important in whole genome sequencing</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="quality-control">
+<h4>3.1.4.1 Quality Control<a class="headerlink" href="#quality-control" title="Link to this heading">#</a></h4>
+<p>It is inevitable to HAVE some errors during 16S rRNA gene sequencing (Pay price for high number of information generated). But we can minimise these errors by using bioinformatics tools and proper experimental design.</p>
+<img src="./graphics/NIH_ppt.png" alt="challenge.png" width="500px"> 
 <p>So you must have got the basic understanding how the 16S or other amplicon sequencing can estimate and sample the microbial population in an efficient and accurate way. Now, let’s have a first glance at the sequencing output:</p>
-<p><a class="reference external" href="https://gencoded.com/index.php/2020/05/20/fastq-format-an-overview/">FASTQ file format</a></p>
+<p>Find sample <a class="reference external" href="https://gencoded.com/index.php/2020/05/20/fastq-format-an-overview/">FASTQ file format</a>,</p>
 <img src="./graphics/fastq_format_explained.png" alt="16s_region.png" width="500px"> 
-<p>The quality score (Q) reflects in a logarithmic scale the probability that this particular base was called incorrectly (Perror). These scores can help identify low-confidence calls that are more likely to be erroneous. quality score equals to 20 or 30 (more stringent) was normally set as the cutoff.</p>
+<p>The quality score (Q) reflects in a logarithmic scale the probability that this particular base was called incorrectly (Perror). These scores can help identify low-confidence calls that are more likely to be erroneous. quality score equals to 20 (1 error happened in 100 bases) or 30 (more stringent, 1 error happened in 1000 bases) was normally set as the cutoff.</p>
 <p>The question comes when we got the sequencing data,</p>
 <ul class="simple">
 <li><p>Is the sequencing data with high quality?</p></li>
@@ -591,20 +655,26 @@ document.write(`
 <img src="./graphics/fastqc.png" alt="16s_region.png" width="500px"> <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This is a complex question but worth to note when you are doing the analysis on the raw sequence data.
-Think about the following sub-questions:
-1.Did you remove all the artifical sequence (e.g. the barcodes, the adpater for PCR)
-<a class="reference external" href="http://2.Is">2.Is</a> your sequence of high sequencing quality?
-3.Any contaminants present in my file?</p>
+Think about the following sub-questions:</p>
+<ol class="arabic simple">
+<li><p>Did you remove all the artifical sequence (e.g. the barcodes, the adpater for PCR)</p></li>
+<li><p>Is your sequence of high sequencing quality?</p></li>
+<li><p>Any contaminants present in my file?</p></li>
+<li><p>Did you apply specific tools to correct the error induced during PCR? (e.g. DADA2 for 16S)</p></li>
+</ol>
 <p>You may find more details about quality control here: <a class="reference external" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">Fastqc</a></p>
 </div>
-<p>After you beleive you have got good quality of sequencing data, you may think about the following questions:</p>
+</section>
+<section id="alignment">
+<h4>3.1.4.2 Alignment<a class="headerlink" href="#alignment" title="Link to this heading">#</a></h4>
+<p>After you believe you have got good quality of sequencing data, you may think about the following questions:</p>
 <ul class="simple">
 <li><p>1.How to identify and classify the unknown bacteria sequence to known species (i.e. curated in database),</p></li>
-<li><p>2.How to quantify the amount (abundance) of each unkown bacteria sequence.</p></li>
+<li><p>2.How to quantify the amount (abundance) of each unknown bacteria sequence.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Like the traditional classification performed based on the traits and morphology, for sequencing and genetic classification, we typically seek to find similarity (aka, identity) between sequences. This procedure, called sequence algnment, is considered as the most essential step in bioinformatics.</p>
+<p>Like the traditional classification performed based on the traits and morphology, for sequencing and molecular classification, we typically seek to find similarity (aka, identity) between sequences. This procedure, called sequence alignment, is considered as the most essential step in bioinformatics.</p>
 </div>
 <p>Two commonly used sequence alignment algorithms are global alignment and local alignment.</p>
 <p>Global alignment: Global alignment is a method of comparing two sequences, which aligns the entire length of the sequences by maximizing the overall similarity. This method is used when comparing sequences that are of the same length.</p>
@@ -612,12 +682,14 @@ Think about the following sub-questions:
 <img src="./graphics/Global-and-Local-Alignment-of-two-sequences.jpg" alt="alignment" width="500px"> 
 <p>Global and Local Alignment of two sequences  <a class="reference external" href="https://www.cshlpress.com/default.tpl?cart=17313073311315054310&amp;amp;fromlink=T&amp;amp;linkaction=full&amp;amp;linksortby=oop_title&amp;amp;--eqSKUdatarq=466">(Mount, D. W., 2001)</a>.</p>
 <p>You will have practice about this mission in the practice session.</p>
+<img src="./graphics/alignment_and_phylogenetic.png" alt="alignment" width="500px"> 
+<p>Example adopted from <a class="reference external" href="https://www.slideshare.net/slideshow/16s-ribosomal-dna-sequence-analysis/42175896#35">link</a></p>
 <p>At present, you know how to identify the similarity between two sequences. Before we go deeper to the quantification part, we should first look at the possible issues we may meet.</p>
 <ol class="arabic simple">
 <li><p>The goal for targeted sequencing is to determine its taxonomic origin based upon a potentially <strong>small</strong> number of variations relative to <strong>similar</strong> taxa. The results may be cofounded by single nucleotide variants (SNVs) caused by <em>sequencer error</em>, leading to a detection of a similar, but incorrect organism, or the false discovery of a new organism.</p></li>
 <li><p>For millions of reads, it is computational intensive to analysis.</p></li>
 </ol>
-<img src="./graphics/otu_vs_asv.png" alt="alignment" width="300px"> 
+<img src="./graphics/otu_vs_asv.png" alt="alignment" width="400px"> 
 <p><a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/B9780323852159000325">otu vs asv</a></p>
 <p>Scientists post a strategy to counter these two issues: find a proxy for microbial species. At the beginning, the proxy is based on the operational taxonomic units (OTUs), clusters of reads that differ by less than a fixed sequence dissimilarity threshold, most commonly 3% (i.e. 97% identity). The clustering method could be further divided into two strategies, 1) closed-reference methods - in which reads sufficiently similar to a sequence in a <strong>reference database</strong> are recruited into a corresponding OTU. 2) <em>De novo</em> methods - in which reads are grouped into OTUs as a function of their pairwise sequence similarities.</p>
 <p>However, several disadvantages has been proposed:</p>
@@ -635,7 +707,7 @@ Think about the following sub-questions:
 <p>After align the proxy (We call it <code class="docutils literal notranslate"><span class="pre">Taxa</span></code> in our tutorial) to the curated database, we may classify the taxa into different taxonomic ranks:</p>
 <p>The taxonomic ranks used in this molecular classification system are:</p>
 <ul class="simple">
-<li><p>Genus   (About 93% identity)</p></li>
+<li><p>Genus   (About 93-97% identity)</p></li>
 <li><p>Species (In general, &gt; 99% identity depend on the targeted 16S region)</p></li>
 </ul>
 <p>Each rank represents a level of classification</p>
@@ -645,7 +717,7 @@ Think about the following sub-questions:
 </div>
 </section>
 <section id="pros-and-cons-of-16s-rrna-sequencing">
-<h4>3.1.3.5 Pros and Cons of 16S rRNA Sequencing<a class="headerlink" href="#pros-and-cons-of-16s-rrna-sequencing" title="Link to this heading">#</a></h4>
+<h4>3.1.4.3 Pros and Cons of 16S rRNA Sequencing<a class="headerlink" href="#pros-and-cons-of-16s-rrna-sequencing" title="Link to this heading">#</a></h4>
 <p>Pros:</p>
 <ul class="simple">
 <li><p>Cost: Cost-effective.</p></li>
@@ -665,7 +737,7 @@ Think about the following sub-questions:
 </section>
 </section>
 <section id="understand-the-ecological-property-of-microbiome-alpha-and-beta-diversity">
-<h3>3.1.4 Understand the Ecological Property of Microbiome: Alpha and Beta Diversity<a class="headerlink" href="#understand-the-ecological-property-of-microbiome-alpha-and-beta-diversity" title="Link to this heading">#</a></h3>
+<h3>3.1.5 Understand the Ecological Property of Microbiome: Alpha and Beta Diversity<a class="headerlink" href="#understand-the-ecological-property-of-microbiome-alpha-and-beta-diversity" title="Link to this heading">#</a></h3>
 <p>An ecological community consists of the collective populations of various species inhabiting a specific area. Each organism within this community occupies a unique ecological niche, encompassing</p>
 <ul class="simple">
 <li><p>the physical environment they inhabit,</p></li>
@@ -735,7 +807,7 @@ Think about the following sub-questions:
 </ul>
 </div>
 <section id="ordination">
-<h4>3.1.4.1 Ordination<a class="headerlink" href="#ordination" title="Link to this heading">#</a></h4>
+<h4>3.1.5.1 Ordination<a class="headerlink" href="#ordination" title="Link to this heading">#</a></h4>
 <p>Ordination is a statistical technique used in ecology to visualize and interpret complex multivariate data sets. It is particularly useful for exploring patterns and relationships among samples or variables in a dataset. Ordination methods aim to represent high-dimensional data in a <strong>lower-dimensional</strong> space while preserving the underlying structure and variation in the data.</p>
 <p>here are various ordination techniques available, each with its own strengths and assumptions. Some common ordination methods include:</p>
 <ul class="simple">
@@ -1977,14 +2049,19 @@ Note that taxa with structural zeros will have 0 p/q-values and SEs
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#three-domain-theory">Three-Domain Theory</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-of-amplicon-sequencing-16s-18s-its">3.1.3.2 Principles of Amplicon Sequencing (16S/18S/ITS)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#common-amplicon-sequencing-steps">3.1.3.3 Common Amplicon Sequencing Steps</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioinformatics-challenge-sequencing-and-alignment">3.1.3.4 Bioinformatics challenge: Sequencing and Alignment</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-and-cons-of-16s-rrna-sequencing">3.1.3.5 Pros and Cons of 16S rRNA Sequencing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#human-microbiome">3.1.3.2 Human Microbiome</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-of-amplicon-sequencing-16s-18s-its">3.1.3.3 Principles of Amplicon Sequencing (16S/18S/ITS)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#common-amplicon-sequencing-steps">3.1.3.4 Common Amplicon Sequencing Steps</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understand-the-ecological-property-of-microbiome-alpha-and-beta-diversity">3.1.4 Understand the Ecological Property of Microbiome: Alpha and Beta Diversity</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ordination">3.1.4.1 Ordination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bioinformatics-challenge-sequencing-and-alignment">3.1.4 Bioinformatics challenge: Sequencing and Alignment</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-control">3.1.4.1 Quality Control</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alignment">3.1.4.2 Alignment</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-and-cons-of-16s-rrna-sequencing">3.1.4.3 Pros and Cons of 16S rRNA Sequencing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understand-the-ecological-property-of-microbiome-alpha-and-beta-diversity">3.1.5 Understand the Ecological Property of Microbiome: Alpha and Beta Diversity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ordination">3.1.5.1 Ordination</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-exercise-6">Case Exercise 6</a></li>
 </ul>
 </li>
@@ -2022,7 +2099,7 @@ Note that taxa with structural zeros will have 0 p/q-values and SEs
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Congjia Chen
 </p>
 
   </div>

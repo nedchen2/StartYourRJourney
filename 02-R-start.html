@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Chapter 2. R basics &#8212; My sample book</title>
+    <title>Chapter 2. R basics &#8212; R Programming for Biologists</title>
   
   
   
@@ -155,8 +155,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="R Programming for Biologists - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="R Programming for Biologists - Home"/>`);</script>
   
   
 </a></div>
@@ -1869,7 +1869,7 @@ alternative hypothesis: true location shift is not equal to 0
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If-else statement only accept the condition (i.e TRUE or FALSE) of length 1. For example, if we want to search whether tomatoes and pumpkins can be found in the store. We can do <code class="docutils literal notranslate"><span class="pre">c(&quot;tomatoes&quot;,&quot;pumpkins&quot;)</span> <span class="pre">%in%</span> <span class="pre">vege_in_stock</span></code>. The results will return <code class="docutils literal notranslate"><span class="pre">c(TRUE,</span> <span class="pre">FALSE)</span></code>, indicating we can find “tomatoes” and can not find “pumpkins” within the variable “vege_in_stock”.</p>
+<p>If-else statement only accept the condition (i.e TRUE or FALSE) of length 1. For example, if we want to search whether tomatoes and pumpkins can be found in the store. We can do <code class="docutils literal notranslate"><span class="pre">c(&quot;tomatoes&quot;,&quot;pumpkins&quot;)</span> <span class="pre">%in%</span> <span class="pre">vege_in_stock</span></code>. The results will return <code class="docutils literal notranslate"><span class="pre">c(TRUE,</span> <span class="pre">FALSE)</span></code> which is of length 2 (therefore not valid to input into the if-else statement, use length() function to comfirm), indicating we can find “tomatoes” and can not find “pumpkins” within the variable “vege_in_stock”.</p>
 <p>To form a more complex logic condition, one option for you is to use either <code class="docutils literal notranslate"><span class="pre">all()</span></code> or  <code class="docutils literal notranslate"><span class="pre">any()</span></code> according to different situation.</p>
 </div>
 <p>If you want to buy either tomatoes or pumpkins,</p>
@@ -2268,7 +2268,7 @@ For example, you have a list of telephone number joined with the name, and age, 
 <section id="case-exercise-4-dna-sequence-alignment-better">
 <h3>Case Exercise 4. DNA Sequence alignment better<a class="headerlink" href="#case-exercise-4-dna-sequence-alignment-better" title="Link to this heading">#</a></h3>
 <p>Try using your function to output the best matched score for seq2 and seq4. How many best matching result do you have?</p>
-<p>We may find ties in the alignment, that is, you may find more than one matching result to share a best matching score.</p>
+<p>We may find ties in the alignment, that is, you may find more than one matching result to share one best matching score.</p>
 <p>How to revise your script and output all possible results?</p>
 </section>
 <section id="case-exercise-5-which-one-is-more-likely-to-be-e-coli">
@@ -2444,7 +2444,7 @@ For example, you have a list of telephone number joined with the name, and age, 
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Congjia Chen
 </p>
 
   </div>

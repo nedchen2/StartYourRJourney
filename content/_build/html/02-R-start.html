@@ -740,6 +740,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_html">1</div></div>
 </div>
+<p>Here, we start a new vector called <code class="docutils literal notranslate"><span class="pre">v1</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0.02</span><span class="p">,</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
@@ -864,6 +865,7 @@ document.write(`
 <ol class=list-inline><li>2</li><li>1</li><li>4</li><li>3</li></ol>
 </div></div>
 </div>
+<p>In R, when a vector or matrix or data frame has been created, R will automatically create numeric indexing (1,2,3,4,……..) in the order from left to right, and from top to bottom. By inputing the numeric index, you can extract the information by using numeric indexing, for example to get the second element from the <code class="docutils literal notranslate"><span class="pre">v3</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v3</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="c1"># Is it?</span>
@@ -876,7 +878,7 @@ document.write(`
 <p>You can also do subsetting (indexing) by the logical value, for example, we want to only retain the year &lt;= 2024:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">logical_vector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span><span class="kc">TRUE</span><span class="p">,</span><span class="kc">FALSE</span><span class="p">,</span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">logical_vector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span><span class="kc">TRUE</span><span class="p">,</span><span class="kc">FALSE</span><span class="p">,</span><span class="kc">FALSE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -893,12 +895,12 @@ document.write(`
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>2020</li><li>2012</li><li>2024</li></ol>
+<ol class=list-inline><li>2020</li><li>2012</li></ol>
 </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v3</span><span class="p">[</span><span class="w"> </span><span class="n">v3</span><span class="o">&lt;=</span><span class="w"> </span><span class="m">2024</span><span class="p">]</span><span class="w"> </span><span class="c1"># You can finish this task in a more intuitive way</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v3</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">2024</span><span class="w"> </span><span class="c1"># elements within the vector will compare with 2024 one by one, and output the logical varaible</span>
 </pre></div>
 </div>
 </div>
@@ -908,10 +910,25 @@ document.write(`
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>2020</li><li>2012</li><li>2024</li></ol>
+<ol class=list-inline><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>FALSE</li></ol>
 </div></div>
 </div>
-<p>Operators like <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> can only work with number, what if we have characters? try: <code class="docutils literal notranslate"><span class="pre">%in%</span></code>. You will find more about operator in Section 2.3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v3</span><span class="p">[</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">2024</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="c1"># Like the one before, but we just simplified our code</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>2020</li><li>2012</li></ol>
+</div></div>
+</div>
+<p>Operators like <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> can only work with number, what if we have characters? try: <code class="docutils literal notranslate"><span class="pre">%in%</span></code>. You will find more about operator in Section 2.3.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v2</span><span class="p">[</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Ned&quot;</span><span class="p">,</span><span class="s">&quot;Unknown&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">]</span><span class="w">  </span><span class="c1"># So this will only display the v2 with value &#39;Ned&#39;, &quot;Unknown&quot;</span>
@@ -948,7 +965,23 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span><span class="p">)</span><span class="w"> </span><span class="c1"># or you can generate a more complicated series sequence by using seq()function, try ?seq()</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seq</span><span class="p">(</span><span class="m">36</span><span class="p">)</span><span class="w"> </span><span class="c1"># seq function do the same thing to generate an arithmetic sequence with difference of 1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><li>21</li><li>22</li><li>23</li><li>24</li><li>25</li><li>26</li><li>27</li><li>28</li><li>29</li><li>30</li><li>31</li><li>32</li><li>33</li><li>34</li><li>35</li><li>36</li></ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span><span class="p">)</span><span class="w"> </span><span class="c1"># this is also an arithmetic sequence, but we set the start and end, and also the length of the sequence</span>
+<span class="c1">#  or you can generate a more complicated series sequence by using seq()function, try ?seq()</span>
 </pre></div>
 </div>
 </div>

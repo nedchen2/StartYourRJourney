@@ -5,7 +5,8 @@ identify_the_seq <- function(seq1,seq2){
   # seq1 and seq2
   # We will return
   # longer_seq : longer sequence in seq1 and seq2
-  # s2 : shorter sequence in seq1 and seq2
+  # shorter_seq : shorter sequence in seq1 and seq2
+  # Also the length of those sequence
   
   seq1 = strsplit(seq1,split = "")[[1]]
   seq2 = strsplit(seq2,split = "")[[1]]  
@@ -36,10 +37,9 @@ calculate_score <- function(s1, s2, l1, l2, startpoint){
   # l1: length of s1
   # l2: length of s2
   # startpoint: the position in longer sequence, where shorter sequence start to match
-  
-  
-  startpoint_seq <- paste(rep(".",startpoint), collapse = "")
-  matched <- paste(paste(s1, collapse = ""),"\n",startpoint_seq, sep = "")
+  # startpoint = startpoint - 1
+  startpoint_seq <- paste(rep(".",startpoint), collapse = "") # For better illustration
+  matched <- paste(paste(s1, collapse = ""), "\n", startpoint_seq, sep = "") # formating the print
   score <- 0
   for (i in seq(length(s2))){
     if (i + startpoint  <= l1){
@@ -51,6 +51,7 @@ calculate_score <- function(s1, s2, l1, l2, startpoint){
       }
     }
   }
+  cat(paste0("Start point:", startpoint + 1), fill = T) # cat is another way to print out something 
   cat(matched,fill = T)
   return(score)
 }
@@ -58,8 +59,9 @@ calculate_score <- function(s1, s2, l1, l2, startpoint){
 # calculate_score(s1, s2, l1, l2, 10)
 
 higher_score_finder <- function(s1,s2,l1,l2){
-  my_best_score = -1
-  for (i in seq(length(s1))){
+  my_best_score = -1   # Set the default best score
+  for (i in seq(length(s1))){ # for loop to use different start point for the same process.
+    i = i - 1   # In this case start from 0, which is we start from the very beginning of the sequence
     z <- calculate_score(s1, s2, l1, l2, i) 
     if (z > my_best_score){ 
       my_best_score = z
@@ -84,11 +86,13 @@ higher_score_finder <- function(s1,s2,l1,l2){
   } 
   print("==== Template sequence ====")
   print(seq1)
+  print("==== Best aligned ====")
   print(my_best_align)
   return(list(my_best_score = my_best_score, 
               start_point = start_point, 
               best_align = my_best_align))
 }
+
 
 main1 <- function(){
   seq_list <- read.csv("../document/case3/align_seq_data.csv",header = F) # Read the sequence
@@ -130,13 +134,27 @@ main3 <- function(){
                                   l1 = prepare$longer_length,
                                   l2 = prepare$shorter_length)  
   
-
+  res.align1 <- higher_score_finder(s1 = prepare$longer_seq,
+                                    s2 = prepare$shorter_seq, 
+                                    l1 = prepare$longer_length,
+                                    l2 = prepare$shorter_length)  
+  
   seq1 = readLines("../document/case5/bacteria2.fa")[2]
   
   prepare <- identify_the_seq(seq1 = seq1, seq2 = seq2)
-  res.align = higher_score_finder(s1 = prepare$longer_seq,
+  res.align2 = higher_score_finder(s1 = prepare$longer_seq,
                                   s2 = prepare$shorter_seq, 
                                   l1 = prepare$longer_length,
                                   l2 = prepare$shorter_length)  
   
+  if (res.align1$my_best_score > res.align2$my_best_score){
+    print("bacteria1.fa is more likely to be the one with e.coli")
+  }else if(res.align1$my_best_score < res.align2$my_best_score) {
+    print("bacteria2.fa is more likely to be the one with e.coli")
+  }else{
+    print("They share the same score")
+  }
+  
+  return(list(align1 = res.align1,align2 = res.align2))
 }
+main3()

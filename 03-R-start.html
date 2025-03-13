@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -416,12 +416,15 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phyloseq-object">3.2.5 Phyloseq Object</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-taxa-based-diversity">3.2.5 Calculate the Taxa-based Diversity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-abundant-analysis">3.2.6 Differential Abundant Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-analysis">3.2.7 Correlation Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-exercise-9-microbiota-wise-correlation">Case Exercise 9. Microbiota-wise correlation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-reading">More Reading</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memorize-the-great-contribution-made-by-the-giant">Memorize the Great Contribution Made By the Giant</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discovery-of-dna">Discovery of DNA</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sequencing">Sequencing</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr-polymerase-chain-reaction">PCR (Polymerase Chain Reaction)</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-techniques">Cloning Techniques</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#common-technique-used-in-molecular-biology">Common Technique Used in Molecular Biology</a></li>
 </ul>
 </li>
 </ul>
@@ -1937,6 +1940,273 @@ Note that taxa with structural zeros will have 0 p/q-values and SEs
 </div>
 <p>ggplot2 is a powerful tool to learn for visualization!</p>
 </section>
+<section id="correlation-analysis">
+<h3>3.2.7 Correlation Analysis<a class="headerlink" href="#correlation-analysis" title="Link to this heading">#</a></h3>
+<p>Normally, Correlation and Association are two terms can be used interchangeably. But they have some tiny but important difference that worth to note when interpret the results.</p>
+<ul class="simple">
+<li><p>Association: A more <strong>vague</strong> term used to describe a relationship (linear or non-linear) between two variables.</p></li>
+<li><p>Correlation: A certain type of (usually linear) association between two variables.</p></li>
+</ul>
+<p>What is a linear relationship?</p>
+<p>A linear relationship (or linear association) is a statistical term used to describe a straight-line relationship between two variables. In math, we can write it as y = mx + b. where: m=slope, b = intercept
+​</p>
+<img src="./graphics/41592_2015_Article_BFnmeth3587_Fig1_HTML.jpg" alt="CorrelationAndAssociaiton.jpg" width="700px">
+<p><a class="reference external" href="https://www.nature.com/articles/nmeth.3587">Naomi Altman, 2015</a></p>
+<p>Basically, we have two main types of data: One is categorical (like girl and boy; or disease and healthy), another one is continuous data (like the height or the proportion of fatty liver). The differential abundant analysis that we have discussed before is actually a kind of association analysis, which mainly focus on the association between continous (the abundance of certain bacteria) and categorical data.</p>
+<p>In this section, we will focus on the correlation analysis which is normally used to describe the relationship between two continous data, such as the linear relationship between the height and the weight for each person.</p>
+<p>For both association/correlation, we can describe it as either positive or negative association.</p>
+<ul class="simple">
+<li><p>Negative: As one variable increases, the other will increase (move in the same direction)</p></li>
+<li><p>Positive: As one variable increases, the other will decrease (move in the oppositive direction)</p></li>
+</ul>
+<p>For correlation, we can use some statistics, i.e. correlation coefficient, to describe the STRENGTH of correlation. The range of correlation coefficient is [-1,1]. Where the -1 indicates the strongest negative correlation, 1 indicates the strongest positive correlation.</p>
+<p>Different Statistics rely on different assumptions, Here is the assumptions for two commonly used:</p>
+<ul class="simple">
+<li><p>Pearson’s r:</p>
+<ul>
+<li><p>Data from both variables follow normal distributions</p></li>
+<li><p>You expect a linear relationship between the two variables.</p></li>
+<li><p>Paired observations</p></li>
+</ul>
+</li>
+<li><p>Spearman’s rho:</p>
+<ul>
+<li><p>Not have any assumptions on the distribution, will use the rank</p></li>
+<li><p>There is a monotonic relationship between the two variables.</p></li>
+<li><p>Paired observations</p></li>
+</ul>
+</li>
+</ul>
+<p>Let’s try with the metadata provided by Dr. Johnson Lok for the NEEN data, in which, we measure the short-chain fatty acid level from either plasma and face and the body weight , etc after we sacrifice the mice.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">meta_endpoints_data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;../document/case9/Meta_endpoint_table.tsv&quot;</span><span class="p">,</span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;\t&quot;</span><span class="p">,</span>
+<span class="n">row.names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="c1"># set the first column as the rownames index</span>
+<span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">meta_endpoints_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 6 × 24</caption>
+<thead>
+	<tr><th></th><th scope=col>NEEN.011</th><th scope=col>NEEN.012</th><th scope=col>NEEN.013</th><th scope=col>NEEN.014</th><th scope=col>NEEN.015</th><th scope=col>NEEN.016</th><th scope=col>NEEN.021</th><th scope=col>NEEN.022</th><th scope=col>NEEN.023</th><th scope=col>NEEN.024</th><th scope=col>⋯</th><th scope=col>NEEN.033</th><th scope=col>NEEN.034</th><th scope=col>NEEN.035</th><th scope=col>NEEN.036</th><th scope=col>NEEN.051</th><th scope=col>NEEN.052</th><th scope=col>NEEN.053</th><th scope=col>NEEN.054</th><th scope=col>NEEN.055</th><th scope=col>NEEN.056</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>⋯</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>Body weight (g)</th><td>  30.20000000</td><td>3.110000e+01</td><td>3.430000e+01</td><td>  36.000000</td><td>  43.90000000</td><td>  43.00000000</td><td>  34.900000</td><td>  29.000000</td><td>  32.90000000</td><td>  37.70000000</td><td>⋯</td><td>3.610000e+01</td><td>  32.000000</td><td>  36.70000</td><td>  32.500000</td><td>  32.90000</td><td>  31.300000</td><td>  32.400000</td><td>3.080000e+01</td><td>3.460000e+01</td><td>3.480000e+01</td></tr>
+	<tr><th scope=row>Body weight loss (%)</th><td>  -0.66666667</td><td>3.715170e+00</td><td>3.107345e+00</td><td>   7.216495</td><td>  -3.78250591</td><td>  -7.50000000</td><td>   4.644809</td><td>  -2.836879</td><td>  -0.30487805</td><td>  -3.00546448</td><td>⋯</td><td>3.989362e+00</td><td>   5.325444</td><td>   4.92228</td><td>   6.876791</td><td>   5.45977</td><td>   9.537572</td><td>   5.263158</td><td>6.097561e+00</td><td>6.738544e+00</td><td>4.918033e+00</td></tr>
+	<tr><th scope=row>Body weight loss (g)</th><td>  -0.20000000</td><td>1.200000e+00</td><td>1.100000e+00</td><td>   2.800000</td><td>  -1.60000000</td><td>  -3.00000000</td><td>   1.700000</td><td>  -0.800000</td><td>  -0.10000000</td><td>  -1.10000000</td><td>⋯</td><td>1.500000e+00</td><td>   1.800000</td><td>   1.90000</td><td>   2.400000</td><td>   1.90000</td><td>   3.300000</td><td>   1.800000</td><td>2.000000e+00</td><td>2.500000e+00</td><td>1.800000e+00</td></tr>
+	<tr><th scope=row>Liver weight (mg)</th><td>1700.00000000</td><td>1.480000e+03</td><td>1.650000e+03</td><td>1780.000000</td><td>2443.00000000</td><td>2197.00000000</td><td>1740.000000</td><td>1360.000000</td><td>1660.00000000</td><td>2010.00000000</td><td>⋯</td><td>1.850000e+03</td><td>1690.000000</td><td>1850.00000</td><td>1620.000000</td><td>1660.00000</td><td>1380.000000</td><td>1490.000000</td><td>1.740000e+03</td><td>1.860000e+03</td><td>1.700000e+03</td></tr>
+	<tr><th scope=row>MRI fat index</th><td>   0.03815241</td><td>6.350756e-02</td><td>3.607113e-02</td><td>         NA</td><td>   0.12080000</td><td>   0.14480000</td><td>         NA</td><td>         NA</td><td>   0.06871337</td><td>   0.09788389</td><td>⋯</td><td>4.194388e-02</td><td>         NA</td><td>        NA</td><td>         NA</td><td>        NA</td><td>         NA</td><td>         NA</td><td>3.169522e-02</td><td>3.825281e-02</td><td>3.357185e-02</td></tr>
+	<tr><th scope=row>Reduction of MRI fat index</th><td>   0.02884759</td><td>4.924434e-04</td><td>8.692887e-02</td><td>         NA</td><td>   0.07266106</td><td>   0.04178158</td><td>         NA</td><td>         NA</td><td>   0.18298663</td><td>   0.17271611</td><td>⋯</td><td>1.250561e-01</td><td>         NA</td><td>        NA</td><td>         NA</td><td>        NA</td><td>         NA</td><td>         NA</td><td>9.380478e-02</td><td>7.724719e-02</td><td>5.072815e-02</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># regular check</span>
+<span class="nf">str</span><span class="p">(</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">meta_endpoints_data</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	24 obs. of  34 variables:
+ $ Body weight (g)               : num  30.2 31.1 34.3 36 43.9 43 34.9 29 32.9 37.7 ...
+ $ Body weight loss (%)          : num  -0.667 3.715 3.107 7.216 -3.783 ...
+ $ Body weight loss (g)          : num  -0.2 1.2 1.1 2.8 -1.6 ...
+ $ Liver weight (mg)             : num  1700 1480 1650 1780 2443 ...
+ $ MRI fat index                 : num  0.0382 0.0635 0.0361 NA 0.1208 ...
+ $ Reduction of MRI fat index    : num  0.028848 0.000492 0.086929 NA 0.072661 ...
+ $ Reduction of MRI fat index (%): num  43.056 0.769 70.674 NA 37.558 ...
+ $ Liver fat droplets (%)        : num  0.484 0.513 1.365 5.645 15.832 ...
+ $ Plasma_Formic acid            : num  170 144 169 127 174 ...
+ $ Plasma_Acetic acid            : num  63.9 101.3 56.3 66.5 100.1 ...
+ $ Plasma_Propionic acid         : num  6.1 5.94 4.29 4.25 2.35 ...
+ $ Plasma_Butyric acid           : num  NA 0.262 0.112 0.118 NA ...
+ $ Plasma_Iso-butyric acid       : num  3.82 1.96 5.86 2.83 2.47 ...
+ $ Plasma_Succinic acid          : num  15.06 14.23 19.65 6.78 7.29 ...
+ $ Plasma_Valeric acid           : num  0.272 0.206 0.336 0.222 0.158 ...
+ $ Plasma_Iso-valeric acid       : num  0.0434 0.0929 0.0973 0.0658 0.1163 ...
+ $ Plasma_Caproic acid           : num  0.951 0.44 1.046 0.85 0.512 ...
+ $ Cecum_Formic acid             : num  NA NA 0.0281 0.0137 NA ...
+ $ Cecum_Acetic acid             : num  2.62 4.93 5.43 2.36 5.28 ...
+ $ Cecum_Propionic acid          : num  0.484 0.949 1.36 0.69 1.268 ...
+ $ Cecum_Butyric acid            : num  0.262 1.518 0.696 0.229 3.548 ...
+ $ Cecum_Iso-butyric acid        : num  0.0368 0.0352 0.0591 0.0311 0.0573 ...
+ $ Cecum_Succinic acid           : num  0.0448 0.0474 0.0605 0.0282 0.4963 ...
+ $ Cecum_Valeric acid            : num  0.0327 0.0533 0.0898 0.0278 0.076 ...
+ $ Cecum_Iso-valeric acid        : num  0.00582 0.00648 0.00994 0.00387 0.01563 ...
+ $ Cecum_Caproic acid            : num  0.000832 0.0012 0.001087 0.000882 0.000726 ...
+ $ Plasma_ALT                    : num  38.9 43.5 45.8 60.8 40.5 ...
+ $ Plasma_AST                    : num  302 208 218 157 188 ...
+ $ Plasma_Glucose                : num  11.7 10.3 11.5 11 14.5 ...
+ $ Plasma_HDL cholesterol        : num  2.81 4.21 3.32 4.5 4.35 ...
+ $ Plasma_Total cholesterol      : num  2.75 3.49 3.32 4.41 4.08 ...
+ $ Plasma_LDL cholesterol        : num  0.345 0.465 0.402 0.6 0.466 0.387 0.351 0.259 0.617 0.466 ...
+ $ Plasma_Triglycerides          : num  0.695 0.853 0.749 0.728 0.721 ...
+ $ Log10 CFU/g feces             : num  NA NA NA NA NA ...
+</pre></div>
+</div>
+</div>
+</div>
+<p>Great! All of the variables that we have is in a numeric variable types ! But we should also notice that we have several “NA” present, meaning that we do not have the data. Then, we will use the built-in function <code class="docutils literal notranslate"><span class="pre">cor.test()</span></code> for correlation analysis. Try ?cor.test()</p>
+<p>The assumptions for correlation analysis is paired observations. Therefore, in case there is an “NA” in one variable, another variable from the same sample will be removed. cor.test() is smart enough to remove the unwanted samples by itself, but it is better to remove the sample with “NA” before we do the analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">na_index</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">is.na</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">meta_endpoints_data</span><span class="p">[</span><span class="s">&quot;Body weight (g)&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">]))</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nf">is.na</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">meta_endpoints_data</span><span class="p">[</span><span class="s">&quot;Liver fat droplets (%)&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">]))</span>
+<span class="n">no_na_index</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="o">!</span><span class="n">na_index</span>
+<span class="nf">sum</span><span class="p">(</span><span class="n">na_index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0</div></div>
+</div>
+<p>It is a great news, we have all the data we want for body weight and liver fat droplets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cor.test</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">meta_endpoints_data</span><span class="p">[</span><span class="s">&quot;Body weight (g)&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">])[</span><span class="n">no_na_index</span><span class="p">],</span><span class="w">              </span><span class="c1">#input the first data vector, use as.numeric to convert one row dataframe to vector</span>
+<span class="w">         </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">meta_endpoints_data</span><span class="p">[</span><span class="s">&quot;Liver fat droplets (%)&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">])[</span><span class="n">no_na_index</span><span class="p">],</span><span class="w">       </span><span class="c1">#input the second data vector,</span>
+<span class="w">         </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;spearman&quot;</span><span class="w"> </span><span class="p">)</span><span class="w">                                                   </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in cor.test.default(x = as.numeric(meta_endpoints_data[&quot;Body weight (g)&quot;, :
+“Cannot compute exact p-value with ties”
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Spearman&#39;s rank correlation rho
+
+data:  as.numeric(meta_endpoints_data[&quot;Body weight (g)&quot;, ])[no_na_index] and as.numeric(meta_endpoints_data[&quot;Liver fat droplets (%)&quot;, ])[no_na_index]
+S = 781.67, p-value = 0.0004477
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+0.6601435 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># store it in an R object</span>
+<span class="n">cor.res</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">cor.test</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">meta_endpoints_data</span><span class="p">[</span><span class="s">&quot;Body weight (g)&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">]),</span><span class="w">         </span><span class="c1">#input the first data vector, use as.numeric to convert one row dataframe to vector</span>
+<span class="w">         </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">meta_endpoints_data</span><span class="p">[</span><span class="s">&quot;Liver fat droplets (%)&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">]),</span><span class="w">        </span><span class="c1">#input the second data vector,</span>
+<span class="w">         </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;spearman&quot;</span><span class="w"> </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in cor.test.default(x = as.numeric(meta_endpoints_data[&quot;Body weight (g)&quot;, :
+“Cannot compute exact p-value with ties”
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># The strength of the correlation</span>
+<span class="n">cor.res</span><span class="o">$</span><span class="n">estimate</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><strong>rho:</strong> 0.660143525064217</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Whether the strength of the correlation is by chance in statistical sense</span>
+<span class="n">cor.res</span><span class="o">$</span><span class="n">p.value</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.000447662958586588</div></div>
+</div>
+<p>The body weight and proportion of liver fat droplets shows a strong positive correlation (Spearman’s rho = 0.8637, p &lt; 0.001). Let’s visualize their relationship use ggplot2 to have a scatter plot with a fitted straight line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prepare for the format that ggplot2 required</span>
+<span class="n">data_for_plot</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">data.frame</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">meta_endpoints_data</span><span class="p">),</span><span class="n">check.names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">)</span><span class="w"> </span><span class="c1"># check.names will fix the name that is not proper for most of the R scripts</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">data_for_plot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 6 × 34</caption>
+<thead>
+	<tr><th></th><th scope=col>Body.weight..g.</th><th scope=col>Body.weight.loss....</th><th scope=col>Body.weight.loss..g.</th><th scope=col>Liver.weight..mg.</th><th scope=col>MRI.fat.index</th><th scope=col>Reduction.of.MRI.fat.index</th><th scope=col>Reduction.of.MRI.fat.index....</th><th scope=col>Liver.fat.droplets....</th><th scope=col>Plasma_Formic.acid</th><th scope=col>Plasma_Acetic.acid</th><th scope=col>⋯</th><th scope=col>Cecum_Iso.valeric.acid</th><th scope=col>Cecum_Caproic.acid</th><th scope=col>Plasma_ALT</th><th scope=col>Plasma_AST</th><th scope=col>Plasma_Glucose</th><th scope=col>Plasma_HDL.cholesterol</th><th scope=col>Plasma_Total.cholesterol</th><th scope=col>Plasma_LDL.cholesterol</th><th scope=col>Plasma_Triglycerides</th><th scope=col>Log10.CFU.g.feces</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>⋯</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>NEEN.011</th><td>30.2</td><td>-0.6666667</td><td>-0.2</td><td>1700</td><td>0.03815241</td><td>0.0288475886</td><td>43.0561023</td><td> 0.4838043</td><td>170.4957</td><td> 63.91583</td><td>⋯</td><td>0.005816731</td><td>0.0008324756</td><td>38.878</td><td>302.205</td><td>11.734</td><td>2.809</td><td>2.752</td><td>0.345</td><td>0.695</td><td>NA</td></tr>
+	<tr><th scope=row>NEEN.012</th><td>31.1</td><td> 3.7151703</td><td> 1.2</td><td>1480</td><td>0.06350756</td><td>0.0004924434</td><td> 0.7694427</td><td> 0.5133340</td><td>144.2435</td><td>101.28424</td><td>⋯</td><td>0.006480060</td><td>0.0012001560</td><td>43.488</td><td>208.400</td><td>10.342</td><td>4.212</td><td>3.487</td><td>0.465</td><td>0.853</td><td>NA</td></tr>
+	<tr><th scope=row>NEEN.013</th><td>34.3</td><td> 3.1073446</td><td> 1.1</td><td>1650</td><td>0.03607113</td><td>0.0869288670</td><td>70.6738756</td><td> 1.3647282</td><td>169.0280</td><td> 56.31484</td><td>⋯</td><td>0.009936406</td><td>0.0010869368</td><td>45.822</td><td>217.835</td><td>11.466</td><td>3.322</td><td>3.317</td><td>0.402</td><td>0.749</td><td>NA</td></tr>
+	<tr><th scope=row>NEEN.014</th><td>36.0</td><td> 7.2164948</td><td> 2.8</td><td>1780</td><td>        NA</td><td>          NA</td><td>        NA</td><td> 5.6450791</td><td>126.8910</td><td> 66.48868</td><td>⋯</td><td>0.003865487</td><td>0.0008817456</td><td>60.835</td><td>156.907</td><td>11.019</td><td>4.496</td><td>4.407</td><td>0.600</td><td>0.728</td><td>NA</td></tr>
+	<tr><th scope=row>NEEN.015</th><td>43.9</td><td>-3.7825059</td><td>-1.6</td><td>2443</td><td>0.12080000</td><td>0.0726610643</td><td>37.5584951</td><td>15.8317157</td><td>174.1511</td><td>100.05432</td><td>⋯</td><td>0.015630414</td><td>0.0007255417</td><td>40.522</td><td>187.523</td><td>14.477</td><td>4.353</td><td>4.083</td><td>0.466</td><td>0.721</td><td>NA</td></tr>
+	<tr><th scope=row>NEEN.016</th><td>43.0</td><td>-7.5000000</td><td>-3.0</td><td>2197</td><td>0.14480000</td><td>0.0417815812</td><td>22.3931971</td><td>16.0552065</td><td>172.1734</td><td> 92.83744</td><td>⋯</td><td>0.013627326</td><td>0.0017304988</td><td>66.884</td><td>192.105</td><td>13.368</td><td>4.043</td><td>3.652</td><td>0.387</td><td>0.407</td><td>NA</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="c1"># draw</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data_for_plot</span><span class="p">,</span><span class="w"> </span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Body.weight..g.</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Liver.fat.droplets....</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="c1"># set the base</span>
+<span class="w">  </span><span class="nf">geom_point</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="c1"># add  point</span>
+<span class="w">  </span><span class="nf">stat_smooth</span><span class="p">(</span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lm&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">              </span><span class="n">formula</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span>
+<span class="w">              </span><span class="n">geom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;smooth&quot;</span><span class="p">)</span><span class="w">  </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/ae48eb805b37a3c0be75efdb9a420d4d5ecfdb1df916fea1433cd3e6075ace13.png"><img alt="_images/ae48eb805b37a3c0be75efdb9a420d4d5ecfdb1df916fea1433cd3e6075ace13.png" src="_images/ae48eb805b37a3c0be75efdb9a420d4d5ecfdb1df916fea1433cd3e6075ace13.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<p>Not that good, as most of the mice have a small variation of liver fat droplets. As spearman’s correlation actually calculate the correlation based on the rank, let’s try another way to visualize:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="c1"># draw</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data_for_plot</span><span class="p">,</span><span class="w"> </span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rank</span><span class="p">(</span><span class="n">Body.weight..g.</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rank</span><span class="p">(</span><span class="n">Liver.fat.droplets....</span><span class="w"> </span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="c1"># set the base</span>
+<span class="w">  </span><span class="nf">geom_point</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="c1"># add  point</span>
+<span class="w">  </span><span class="nf">stat_smooth</span><span class="p">(</span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lm&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">              </span><span class="n">formula</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span>
+<span class="w">              </span><span class="n">geom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;smooth&quot;</span><span class="p">)</span><span class="w">  </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/d5af2c6871d747bc0a8eb57d8e1fceda20eb888cdee103b5dc19dc2e66e4c5a0.png"><img alt="_images/d5af2c6871d747bc0a8eb57d8e1fceda20eb888cdee103b5dc19dc2e66e4c5a0.png" src="_images/d5af2c6871d747bc0a8eb57d8e1fceda20eb888cdee103b5dc19dc2e66e4c5a0.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<p>Great! You can see that the body weight and liver fat droplets do move in the same direction. And it is quite strong.</p>
+</section>
+<section id="case-exercise-9-microbiota-wise-correlation">
+<h3>Case Exercise 9. Microbiota-wise correlation<a class="headerlink" href="#case-exercise-9-microbiota-wise-correlation" title="Link to this heading">#</a></h3>
+<p>Previously, we have introduced how to do the correlation analysis on the metadata provided. Now, you are required to:</p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>merge the otu_table with the meta_endpoint_data to form a dataframe that is ready to do correlation (hint: ?merge()).</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>Do correlation iteratively for each bacteria and each metadata (hint: Two for loop)</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="3">
+<li><p>Store your results (most importantly your correlation coefficient and p value) in an R object for each association analysis, either a list() or a dataframe() (hint: create a new dataframe or list, and store your results within each of the for loop)</p></li>
+</ol>
+</li>
+</ul>
+</section>
 <section id="more-reading">
 <h3>More Reading<a class="headerlink" href="#more-reading" title="Link to this heading">#</a></h3>
 <p>You may try other wrapper R packages, like <a class="reference external" href="https://www.nature.com/articles/s41596-019-0264-1">microbiomeAnalyst</a>.</p>
@@ -1978,6 +2248,16 @@ Note that taxa with structural zeros will have 0 p/q-values and SEs
 <li><p>1973: Herbert Boyer and Stanley Cohen developed a method for cloning DNA in bacteria using recombinant DNA technology.</p></li>
 <li><p>1996: The first mammal, Dolly the sheep, was cloned from an adult somatic cell using somatic cell nuclear transfer (SCNT).</p></li>
 </ul>
+</section>
+<section id="common-technique-used-in-molecular-biology">
+<h4>Common Technique Used in Molecular Biology<a class="headerlink" href="#common-technique-used-in-molecular-biology" title="Link to this heading">#</a></h4>
+<p>Agarose Gel Electrophoresis:  Arne Tiselius, a Swedish scientist who published his first study on electrophoresis. This technique separates DNA fragments based on size. By applying an electric current to a gel matrix, researchers could visualize and analyze DNA samples, allowing for the assessment of fragment length and purity.</p>
+<p>Western blotting: A western blot experiment, or western blotting (also called immunoblotting, because an antibody is used to specifically detect its antigen) was introduced by Towbin, et al. in 1979 and is now a routine technique for protein analysis.</p>
+<p>Restriction Enzyme Analysis: Restriction enzymes cut DNA at specific sequences, enabling scientists to analyze DNA fragments generated by these cuts. This method was crucial for mapping genomes and studying genetic variation.</p>
+<p>Southern Blotting: Developed by Edwin Southern in 1975, this technique combines gel electrophoresis and hybridization. It allows for the detection of specific DNA sequences within a complex mixture, using labeled probes to identify complementary sequences.</p>
+<p>Polymerase Chain Reaction (PCR): Invented in the 1980s, PCR enables the amplification of specific DNA segments, making it possible to study small amounts of DNA in detail. This technique revolutionized molecular biology and diagnostic testing.</p>
+<p>DNA Probes and Hybridization: Researchers used labeled DNA probes to bind to complementary sequences in DNA samples, allowing for the identification of specific genes or mutations.</p>
+<p>DNA Microarrays: Although more advanced than earlier methods, microarrays allowed for the simultaneous analysis of thousands of genes, providing insights into gene expression and regulation before the full sequencing of genomes.</p>
 </section>
 </section>
 </section>
@@ -2075,12 +2355,15 @@ Note that taxa with structural zeros will have 0 p/q-values and SEs
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phyloseq-object">3.2.5 Phyloseq Object</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-taxa-based-diversity">3.2.5 Calculate the Taxa-based Diversity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-abundant-analysis">3.2.6 Differential Abundant Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-analysis">3.2.7 Correlation Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-exercise-9-microbiota-wise-correlation">Case Exercise 9. Microbiota-wise correlation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-reading">More Reading</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memorize-the-great-contribution-made-by-the-giant">Memorize the Great Contribution Made By the Giant</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discovery-of-dna">Discovery of DNA</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sequencing">Sequencing</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr-polymerase-chain-reaction">PCR (Polymerase Chain Reaction)</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-techniques">Cloning Techniques</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#common-technique-used-in-molecular-biology">Common Technique Used in Molecular Biology</a></li>
 </ul>
 </li>
 </ul>

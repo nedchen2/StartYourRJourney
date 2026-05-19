@@ -1,2 +1,3 @@
 source/*
 content/set_environment.md
+.gitignore

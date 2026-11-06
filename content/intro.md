@@ -2,7 +2,7 @@
 
 
 
-This tutorial was first designed for the *Methods for Assessing Health Benefits in Functional Foods* (at University of Eastern Finland), but will be used elsewhere if necessary.
+This tutorial was designed for *Methods for Assessing Health Benefits in Functional Foods* (at the University of Eastern Finland) and *Toxicity tests and hazards evaluation methods* (Machine Learning, at the University of Hong Kong).
 
 - The R Journey tutorial originated and inspired from the content from MSc in Computational Methods in Ecology and Evolution from Imperial College London. I appreciate Dr. Samraat Pawar for his great help during my master study.
 
